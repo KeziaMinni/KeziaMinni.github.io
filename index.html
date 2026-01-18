@@ -36,7 +36,9 @@ body {
 }
 
 .about-gradient {
-  font-weight: 700; /* bold */
+ font-size: 1.15rem;        /* bigger, readable */
+  line-height: 1.75; /* bold */
+  margin-bottom: 0.9em;
   background: linear-gradient(
     120deg,
     #B13BFF 0%,
@@ -288,6 +290,75 @@ nav a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* ==============================
+   EDUCATION
+   ============================== */
+
+.education-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #065084, #0F828C);
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+.education-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.education-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.education-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.institution-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.degree {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.education-details {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.education-list {
+  margin-top: 14px;
+  padding-left: 18px;
+}
+
+.education-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.education-list strong {
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 
 
@@ -528,7 +599,7 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <strong>Kezia Minni</strong>
+  <strong>KM</strong>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -568,10 +639,15 @@ footer {
     <div class="about-text">
       <h1>About Me</h1>
       <p class="about-gradient">
-        I’m a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning projects. My background includes industry work with large-scale datasets, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality, metrics, and decision-making. During my Master’s in Data Science at Rochester Institute of Technology, I expanded into predictive modeling, multimodal deep learning, and rigorous model evaluation, while also supporting analytics workflows and reporting as a graduate assistant. I’m particularly interested in building data systems and models that are reliable, well-evaluated, and genuinely useful, translating complex data into insights that teams can trust and act on.
+        I’m a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning projects. My background includes industry work with large-scale datasets, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality, metrics, and decision-making.</p>
+
+        <p class="about-gradient">
+         During my Master’s in Data Science at Rochester Institute of Technology, I expanded into predictive modeling, multimodal deep learning, and rigorous model evaluation, while also supporting analytics workflows and reporting as a graduate assistant. I’m particularly interested in building data systems and models that are reliable, well-evaluated, and genuinely useful, translating complex data into insights that teams can trust and act on.
       </p>
-      <!-- <a href="#projects" class="btn">View My Work</a>
-      <a href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view?usp=drive_link" class="btn" target="_blank">Download Resume</a> -->
+      <div class="about-actions">
+        <a href="#experience" class="btn">Discover More</a>
+        <a href="#contact" class="btn">Connect</a>
+      </div>
     </div>
 
     <div class="about-image">
@@ -646,6 +722,34 @@ footer {
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <h2>Education</h2>
+
+  <div class="education-card">
+    <div class="education-header">
+      <img src="images/rit.png" alt="RIT logo" class="education-logo">
+
+      <div class="education-meta">
+        <div class="institution-name">
+          Rochester Institute of Technology
+        </div>
+        <div class="degree">
+          Master of Science in Data Science
+        </div>
+        <div class="education-details">
+          Aug 2023 – Dec 2025 · Rochester, USA
+        </div>
+      </div>
+    </div>
+
+    <ul class="education-list">
+      <li><strong>Core Areas:</strong> Machine Learning, Statistical Modeling, Data Mining, Visual Analytics</li>
+      <li><strong>Focus:</strong> Predictive modeling, multimodal learning, rigorous model evaluation</li>
+      <li><strong>Academic Roles:</strong> Graduate Teaching Assistant (Visual Analytics)</li>
+    </ul>
+  </div>
+</section>
 
 <section id="projects" class="section">
   <h2>Projects</h2>
