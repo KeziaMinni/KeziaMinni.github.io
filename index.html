@@ -35,6 +35,21 @@ body {
   line-height: 1.65;
 }
 
+.about-gradient {
+  font-weight: 700; /* bold */
+  background: linear-gradient(
+    120deg,
+    #B13BFF 0%,
+    #FFCC00 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* readability */
+  line-height: 1.7;
+  max-width: 700px;
+}
+
 /* ==============================
    HERO SECTION
    ============================== */
@@ -201,107 +216,259 @@ nav a:hover {
 }
 
 /* ==============================
-   EXPERIENCE
+   EXPERIENCE – LINKEDIN STYLE
    ============================== */
+  /* Header block inside card */
+/* Center cards */
 .experience-card {
+  max-width: 900px;
+  margin: 0 auto 26px auto;
   background: linear-gradient(145deg, #471396, #3b0f78);
   padding: 26px;
   border-radius: 18px;
-  margin-bottom: 26px;
   border: 1px solid rgba(255,255,255,0.06);
   box-shadow: 0 10px 24px rgba(0,0,0,0.25);
 }
 
-.experience-card span {
-  font-size: 0.9rem;
+/* Header layout */
+.experience-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.company-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.company-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.role-name {
+  font-size: 0.95rem;
   color: var(--text-muted);
 }
 
-ul {
+.experience-details {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Bullets */
+.experience-card ul {
   margin-top: 14px;
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
-li {
+.experience-card li {
   margin-bottom: 8px;
-  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.about-gradient {
-  font-weight: 700; /* bold */
-  background: linear-gradient(
-    120deg,
-    #B13BFF 0%,
-    #FFCC00 100%
-  );
+/* Gradient highlights */
+.experience-card strong {
+  font-weight: 700;
+  background: linear-gradient(90deg, #B13BFF, #FFCC00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* readability */
-  line-height: 1.7;
-  max-width: 700px;
 }
+
+
+
 /* ==============================
    PROJECTS
    ============================== */
 .featured-projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
+
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
 .project-card {
-  background: linear-gradient(145deg, #471396, #3b0f78);
-  padding: 22px;
-  border-radius: 18px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: #1f1f2e;
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transform: translateY(-4px);
 }
 
 .project-card img {
-  border-radius: 14px;
+  width: 100%;
+  height: 180px;              /* 🔑 fixed height */
+  object-fit: cover;          /* 🔑 crop, don’t stretch */
+  border-radius: 12px;
   margin-bottom: 14px;
 }
 
-.project-card p {
-  color: var(--text-muted);
+/* ==============================
+   PROJECT CATEGORY TAGS
+   ============================== */
+
+.project-card {
+  position: relative;
+}
+
+.project-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: #fff;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+}
+
+/* Category colors */
+.project-tag.ml {
+  background: linear-gradient(90deg, #78B9B5, #0F828C);
+}
+
+.project-tag.analytics {
+  background: linear-gradient(90deg, #0F828C, #065084);
+}
+
+.project-tag.data-eng {
+  background: linear-gradient(90deg, #065084, #320A6B);
+}
+
+.project-tag.nlp {
+  background: linear-gradient(90deg, #78B9B5, #065084);
+}
+
+.project-tag.cv {
+  background: linear-gradient(90deg, #0F828C, #320A6B);
+}
+
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #2a2a3d;
+  max-width: 700px;
+  padding: 28px;
+  border-radius: 18px;
+}
+
+.modal-close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.tool-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tool-chip {
+  background: #3b3b5a;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* ==============================
+   MODAL SCROLLING CONTENT
+   ============================== */
+
+.modal-content {
+  max-height: 85vh;              /* modal never exceeds screen */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-scroll {
+  overflow-y: auto;              /* enable internal scrolling */
+  padding-right: 6px;            /* space for scrollbar */
+}
+
+/* Optional: smooth scrollbar (Chrome/Edge) */
+.modal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
 }
 
 /* ==============================
    SKILLS
    ============================== */
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
-.skills-grid div {
-  background: linear-gradient(145deg, #471396, #3b0f78);
-  padding: 24px;
-  border-radius: 18px;
+.skill-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 22px;
   border: 1px solid rgba(255,255,255,0.06);
 }
 
-.skills-grid h4 {
-  color: var(--primary);
+.skill-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.skills-grid p {
+.skill-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--text-muted);
 }
+
 
 /* ==============================
    CONTACT
@@ -408,7 +575,7 @@ footer {
     </div>
 
     <div class="about-image">
-      <img src="images/profile_pic.png" alt="Profile Photo">
+      <img src="images/pro_pic.png" alt="Profile Photo">
     </div>
   </div>
 </section>
@@ -417,89 +584,345 @@ footer {
 <section id="experience" class="section">
   <h2>Work Experience</h2>
 
+  <!-- RIT -->
   <div class="experience-card">
-    <h3>Quality Analyst — Amazon</h3>
-    <span>2019 – 2023</span>
+    <div class="experience-header">
+      <img src="images/rit.png" alt="RIT logo" class="company-logo">
+
+      <div class="experience-meta">
+        <div class="company-name">Rochester Institute of Technology</div>
+        <div class="role-name">Graduate Assistant</div>
+        <div class="experience-details">Aug 2025 – Dec 2025 · Rochester, USA</div>
+      </div>
+    </div>
+
     <ul>
-      <li>Built SQL pipelines to validate and monitor pricing data.</li>
-      <li>Analyzed large datasets to identify anomalies and quality issues.</li>
-      <li>Translated findings into actionable insights for stakeholders.</li>
+      <li>Built standardized <strong>Python and R analytics workflows</strong> supporting 50+ graduate researchers, improving consistency and reliability across end-to-end data pipelines.</li>
+      <li>Created visual and tabular summaries to help faculty and students interpret statistical results and analytical trends.</li>
+      <li>Reviewed and evaluated <strong>100+ analytics projects</strong>, assessing data quality, methodology, and result validity.</li>
+      <li>Collaborated with faculty and data science students from raw data ingestion through final insight presentation.</li>
     </ul>
   </div>
 
+  <!-- Amazon - Quality Analyst -->
   <div class="experience-card">
-    <h3>Graduate Teaching Assistant — RIT</h3>
-    <span>2024 – Present</span>
+    <div class="experience-header">
+      <img src="images/amazon.png" alt="Amazon logo" class="company-logo">
+
+      <div class="experience-meta">
+        <div class="company-name">Amazon</div>
+        <div class="role-name">Quality Analyst</div>
+        <div class="experience-details">Dec 2019 – Jul 2022 · Chennai, India</div>
+      </div>
+    </div>
+
     <ul>
-      <li>Supported visual analytics coursework.</li>
-      <li>Helped students communicate insights through visualization.</li>
+      <li>Built and maintained <strong>SQL-based reporting pipelines</strong> on large pricing and retail datasets for operational audits and leadership reporting.</li>
+      <li>Designed and owned <strong>Tableau dashboards</strong> tracking pricing performance, operational KPIs, and funnel metrics.</li>
+      <li>Applied <strong>statistical analysis and A/B testing</strong> to evaluate pricing strategies, reducing decision cycles by 20%.</li>
+      <li>Analyzed <strong>10M+ row datasets</strong> to identify anomalies, data quality issues, and systemic trends.</li>
+      <li>Partnered with operations, compliance, and program stakeholders to define metrics and communicate insights through clear reports.</li>
+    </ul>
+  </div>
+
+  <!-- Amazon - Retail Process Associate -->
+  <div class="experience-card">
+    <div class="experience-header">
+      <img src="images/amazon.png" alt="Amazon logo" class="company-logo">
+
+      <div class="experience-meta">
+        <div class="company-name">Amazon</div>
+        <div class="role-name">Retail Process Associate</div>
+        <div class="experience-details">Jun 2017 – Nov 2019 · Chennai, India</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>Applied <strong>SQL-based analysis</strong> and statistical techniques to streamline reporting workflows and reduce errors.</li>
+      <li>Conducted large-scale pricing audits and trend analysis impacting millions of product listings.</li>
+      <li>Mentored <strong>20+ team members</strong> on analytics tools, data validation standards, and audit methodologies.</li>
+      <li>Translated recurring operational patterns into process improvements adopted across multiple retail workflows.</li>
     </ul>
   </div>
 </section>
 
-<!-- PROJECTS -->
+
 <section id="projects" class="section">
   <h2>Projects</h2>
 
+  <!-- FEATURED PROJECTS -->
   <h3>Featured Projects</h3>
-  <div class="featured-projects">
-    <div class="project-card">
-      <img src="project1.jpg" alt="">
-      <h4>Retail Sales Analysis – FastKart</h4>
-      <p>SQL-based analysis of revenue, conversion, and sales trends.</p>
+  <div class="project-grid featured-projects">
+
+    <div class="project-card" onclick="openProject('imageCaption')">
+      <span class="project-tag ml">Machine Learning</span>
+      <img src="images/image_caption_2.png" alt="Image Caption Ranking">
+      <h4>Image–Caption Ranking Model</h4>
+      <p>Multimodal deep learning system for ranking caption quality.</p>
     </div>
 
-    <div class="project-card">
-      <img src="project2.jpg" alt="">
-      <h4>User Engagement Analytics Pipeline</h4>
-      <p>Snowflake SQL pipeline for session, funnel, and retention analysis.</p>
+    <div class="project-card" onclick="openProject('retention')">
+      <span class="project-tag analytics">Analytics</span>
+      <img src="images/user_engagement.png" alt="User Retention">
+      <h4>User Engagement & Retention Analytics</h4>
+      <p>Snowflake SQL pipeline modeling sessions, funnels, and cohorts.</p>
     </div>
+
   </div>
 
-  <h3>All Projects</h3>
+  <!-- ALL PROJECTS -->
+  <h3>Other Projects</h3>
   <div class="project-grid">
-    <div class="project-card">
-      <h4>Hospital Readmission Prediction</h4>
-      <p>Logistic regression and cost impact modeling.</p>
+
+    <div class="project-card" onclick="openProject('insurance')">
+      <span class="project-tag ml">Machine Learning</span>
+      <img src="images/life_insurance_bonus.png" alt="">
+      <h4>Life Insurance Bonus Prediction</h4>
+      <p>Logistic regression and ML for bonus eligibility.</p>
     </div>
-    <div class="project-card">
-      <h4>Image–Caption Ranking Model</h4>
-      <p>Multimodal deep learning with rigorous evaluation.</p>
+
+    <div class="project-card" onclick="openProject('pricing')">
+      <span class="project-tag analytics">Analytics</span>
+      <img src="images/fastkart.png" alt="">
+      <h4>Retail Pricing Anomaly Detection</h4>
+      <p>SQL-based anomaly detection on retail pricing data.</p>
     </div>
+
+    <div class="project-card" onclick="openProject('nestegg')">
+      <span class="project-tag nlp">AI/ML</span>
+      <img src="images/nestegg.png" alt="">
+      <h4>AI Budgeting Assistant – NestEgg</h4>
+      <p>NLP-powered personal finance assistant.</p>
+    </div>
+
   </div>
 </section>
+
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-  <h2>Skills</h2>
+  <h2>Technical Skills</h2>
 
   <div class="skills-grid">
-    <div>
-      <h4>Languages</h4>
-      <p>Python, SQL, R</p>
+
+    <!-- Programming -->
+    <div class="skill-card">
+      <h3>Programming & Querying</h3>
+      <ul>
+        <li>Python</li>
+        <li>SQL</li>
+        <li>R</li>
+        <li>Bash</li>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
     </div>
-    <div>
-      <h4>Machine Learning</h4>
-      <p>Regression, Classification, Evaluation, EDA</p>
+
+    <!-- Data Science -->
+    <div class="skill-card">
+      <h3>Data Science & Machine Learning</h3>
+      <ul>
+        <li>Linear & Logistic Regression</li>
+        <li>Decision Trees, Random Forest, XGBoost</li>
+        <li>Classification & Clustering</li>
+        <li>Deep Learning (CNNs)</li>
+        <li>Natural Language Processing (NLP)</li>
+        <li>Feature Engineering</li>
+        <li>Model Evaluation & Cross-Validation</li>
+        <li>A/B Testing & Causal Inference</li>
+        <li>Statistical Modeling</li>
+      </ul>
     </div>
-    <div>
-      <h4>Tools</h4>
-      <p>Snowflake, Git, Tableau, Power BI</p>
+
+    <!-- Analytics -->
+    <div class="skill-card">
+      <h3>Analytics & Visualization</h3>
+      <ul>
+        <li>Exploratory Data Analysis (EDA)</li>
+        <li>KPI Design & Metrics Analysis</li>
+        <li>Funnel & Retention Analysis</li>
+        <li>Tableau</li>
+        <li>Power BI</li>
+        <li>Matplotlib, Seaborn, Plotly</li>
+        <li>ggplot2, R Markdown</li>
+        <li>Gephi, QGIS</li>
+        <li>Data Visualization</li>
+      </ul>
     </div>
+
+    <!-- Data Systems -->
+    <div class="skill-card">
+      <h3>Data Engineering & Systems</h3>
+      <ul>
+        <li>SQL-Based Reporting Pipelines</li>
+        <li>Data Validation & Quality Checks</li>
+        <li>Workflow Automation</li>
+        <li>Snowflake</li>
+        <li>MySQL, PostgreSQL</li>
+        <li>SQL Server, Oracle</li>
+        <li>APIs</li>
+      </ul>
+    </div>
+
+    <!-- Tools -->
+    <div class="skill-card">
+      <h3>Tools & Platforms</h3>
+      <ul>
+        <li>TensorFlow, Keras</li>
+        <li>Git & GitHub</li>
+        <li>Jupyter</li>
+        <li>VS Code</li>
+        <li>Anaconda</li>
+        <li>Google Colab</li>
+        <li>Excel</li>
+        <li>SnowSQL</li>
+      </ul>
+    </div>
+
   </div>
 </section>
+
+
+
 
 <!-- CONTACT -->
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <p>Feel free to reach out for opportunities or collaborations.</p>
+  <p class="contact-intro">
+    I’m always open to discussing data science roles, research collaborations, or interesting projects.
+  </p>
 
   <div class="contact-links">
-    <a href="mailto:email@example.com">Email</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">GitHub</a>
+    <a href="mailto:makezia7@gmail.com" class="contact-btn">
+      Email
+    </a>
+
+    <a href="https://www.linkedin.com/in/kezia-minni-368565137/" target="_blank" class="contact-btn">
+      LinkedIn
+    </a>
+
+    <a href="https://github.com/KeziaMinni" target="_blank" class="contact-btn">
+      GitHub
+    </a>
+
+    <a href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view"
+       target="_blank"
+       class="contact-btn outline">
+      Resume
+    </a>
   </div>
 </section>
+
+<!-- PROJECT MODAL -->
+<div id="project-modal" class="modal hidden" onclick="closeProject()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+
+    <span class="modal-close" onclick="closeProject()">&times;</span>
+
+    <div class="modal-scroll">
+      <h3 id="modal-title"></h3>
+      <img id="modal-image" src="" alt="Project image">
+
+      <h4>Context</h4>
+      <p id="modal-context"></p>
+
+      <h4>Action</h4>
+      <p id="modal-action"></p>
+
+      <h4>Result</h4>
+      <p id="modal-result"></p>
+
+      <h4>Tools & Technologies</h4>
+      <div id="modal-tools" class="tool-chips"></div>
+
+      <a id="modal-github" href="#" target="_blank" class="btn">
+        View on GitHub
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const projects = {
+  imageCaption: {
+    title: "Image–Caption Ranking Model",
+    image: "images/image_caption_2.png",
+    context: "Built a multimodal learning system to evaluate and rank image captions using both visual and textual information.",
+    action: "Combined ResNet image embeddings with Sentence Transformer text embeddings, trained pairwise ranking models, and evaluated using Pearson and Spearman correlation with human annotations.",
+    result: "Achieved 0.760 Pearson and 0.709 Spearman correlation and ~85% accuracy on same-image caption ranking. Project is research-ready.",
+    tools: ["Python", "TensorFlow", "Keras", "ResNet", "Sentence Transformers"],
+    github: "https://github.com/hil-se/comparative_image_caption"
+  },
+
+  retention: {
+    title: "User Engagement & Retention Analytics Pipeline",
+    image: "images/user_engagement.png",
+    context: "Modeled raw event-level data into actionable product analytics metrics.",
+    action: "Built Snowflake SQL pipelines for sessionization, funnel analysis, and cohort-based retention.",
+    result: "Enabled clear analysis of engagement, conversion, and churn trends for data-driven decisions.",
+    tools: ["SQL", "Snowflake", "Product Analytics"],
+    github: "https://github.com/KeziaMinni/user-engagement-retention-analytics-pipeline"
+  },
+
+
+  insurance: {
+    title: "Life Insurance Bonus Prediction",
+    image: "images/life_insurance_bonus.png",
+    context: "Predicted bonus eligibility for insurance agents using historical sales data.",
+    action: "Applied logistic regression, decision trees, and clustering with feature engineering.",
+    result: "Improved predictive reliability by 18%.",
+    tools: ["Python", "scikit-learn", "Logistic Regression"],
+    github: "https://github.com/KeziaMinni/life-insurance-bonus-predictor"
+  },
+
+  pricing: {
+    title: "Retail Pricing Anomaly Detection",
+    image: "images/fastkart.png",
+    context: "Identified pricing inconsistencies across large retail datasets.",
+    action: "Built SQL-based anomaly detection using thresholds and pattern rules.",
+    result: "Reduced manual review effort and strengthened data governance.",
+    tools: ["SQL", "MySQL"],
+    github: "https://github.com/KeziaMinni/sql-fastkart-retail-analysis"
+  },
+
+  nestegg: {
+    title: "AI Budgeting Assistant – NestEgg",
+    image: "images/nestegg.png",
+    context: "Created an AI assistant to help users understand and improve spending behavior.",
+    action: "Used NLP with Google Gemini API to classify transactions and generate insights.",
+    result: "Improved clarity and decision-making around personal finances.",
+    tools: ["Python", "NLP", "Google Gemini"],
+    github: "https://github.com/KeziaMinni/nestegg-financial-assistant"
+  }
+};
+
+function openProject(key) {
+  const p = projects[key];
+  document.getElementById("modal-title").innerText = p.title;
+  document.getElementById("modal-image").src = p.image;
+  document.getElementById("modal-context").innerText = p.context;
+  document.getElementById("modal-action").innerText = p.action;
+  document.getElementById("modal-result").innerText = p.result;
+  document.getElementById("modal-github").href = p.github;
+
+  const tools = document.getElementById("modal-tools");
+  tools.innerHTML = "";
+  p.tools.forEach(t => {
+    const chip = document.createElement("span");
+    chip.className = "tool-chip";
+    chip.innerText = t;
+    tools.appendChild(chip);
+  });
+
+  document.getElementById("project-modal").classList.remove("hidden");
+}
+
+function closeProject() {
+  document.getElementById("project-modal").classList.add("hidden");
+}
+</script>
+
 
 <footer>
   © 2026 Kezia Minni
