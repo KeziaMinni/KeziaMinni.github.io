@@ -36,6 +36,47 @@ body {
 }
 
 /* ==============================
+   HERO SECTION
+   ============================== */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10%;
+}
+
+.hero-name {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.hero-highlight {
+  background: linear-gradient(120deg, #B13BFF, #FFCC00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-role {
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ==============================
    GLOBAL ELEMENTS
    ============================== */
 a {
@@ -329,18 +370,41 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+<section id="home" class="hero-section">
+  <div class="hero-content">
+
+    <h1 class="hero-name">
+      Kezia <span class="hero-highlight">Minni</span>
+    </h1>
+
+    <h2 class="hero-role">
+      Data Scientist
+    </h2>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn">View My Work</a>
+      <a
+        href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view?usp=drive_link"
+        class="btn btn-secondary"
+        target="_blank"
+      >
+        Download Resume
+      </a>
+    </div>
+
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section id="about" class="section">
   <div class="about-container">
     <div class="about-text">
-      <h1>Kezia Minni</h1>
-      <h2>Data Scientist</h2>
+      <h1>About Me</h1>
       <p class="about-gradient">
         I’m a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning projects. My background includes industry work with large-scale datasets, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality, metrics, and decision-making. During my Master’s in Data Science at Rochester Institute of Technology, I expanded into predictive modeling, multimodal deep learning, and rigorous model evaluation, while also supporting analytics workflows and reporting as a graduate assistant. I’m particularly interested in building data systems and models that are reliable, well-evaluated, and genuinely useful, translating complex data into insights that teams can trust and act on.
       </p>
-      <a href="#projects" class="btn">View My Work</a>
-      <a href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view?usp=drive_link" class="btn" target="_blank">Download Resume</a>
+      <!-- <a href="#projects" class="btn">View My Work</a>
+      <a href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view?usp=drive_link" class="btn" target="_blank">Download Resume</a> -->
     </div>
 
     <div class="about-image">
