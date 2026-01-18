@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kezia Minni | Data Scientist</title>
+
+  <style>
+ :root {
+  --bg: #090040;
+  --card: #471396;
+  --primary: #B13BFF;
+  --accent: #FFCC00;
+  --text: #FFFFFF;
+  --text-muted: #CFCFEA;
+}
+
+/* ==============================
+   RESET
+   ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+/* ==============================
+   GLOBAL ELEMENTS
+   ============================== */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section {
+  padding: 90px 10%;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2.1rem;
+  margin-bottom: 32px;
+  border-left: 4px solid var(--primary);
+  padding-left: 14px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+p {
+  max-width: 650px;
+  color: var(--text-muted);
+}
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9, 0, 64, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 22px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav strong {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 26px;
+}
+
+nav a {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ==============================
+   BUTTONS
+   ============================== */
+.btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 28px;
+  background: var(--primary);
+  color: #090040;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(177, 59, 255, 0.45);
+}
+
+/* ==============================
+   ABOUT SECTION
+   ============================== */
+.about-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.about-text h2 {
+  border-left: none;
+  padding-left: 0;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.about-image img {
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* ==============================
+   EXPERIENCE
+   ============================== */
+.experience-card {
+  background: linear-gradient(145deg, #471396, #3b0f78);
+  padding: 26px;
+  border-radius: 18px;
+  margin-bottom: 26px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+.experience-card span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+ul {
+  margin-top: 14px;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.about-gradient {
+  font-weight: 700; /* bold */
+  background: linear-gradient(
+    120deg,
+    #B13BFF 0%,
+    #FFCC00 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* readability */
+  line-height: 1.7;
+  max-width: 700px;
+}
+/* ==============================
+   PROJECTS
+   ============================== */
+.featured-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.project-card {
+  background: linear-gradient(145deg, #471396, #3b0f78);
+  padding: 22px;
+  border-radius: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.project-card img {
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.project-card p {
+  color: var(--text-muted);
+}
+
+/* ==============================
+   SKILLS
+   ============================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 26px;
+}
+
+.skills-grid div {
+  background: linear-gradient(145deg, #471396, #3b0f78);
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.skills-grid h4 {
+  color: var(--primary);
+}
+
+.skills-grid p {
+  color: var(--text-muted);
+}
+
+/* ==============================
+   CONTACT
+   ============================== */
+.contact-links {
+  margin-top: 26px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.contact-links a:hover {
+  color: var(--accent);
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 900px) {
+  .section {
+    padding: 70px 8%;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-text p {
+    margin: 0 auto;
+  }
+
+  nav ul {
+    gap: 18px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <strong>Kezia Minni</strong>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="about-container">
+    <div class="about-text">
+      <h1>Kezia Minni</h1>
+      <h2>Data Scientist</h2>
+      <p class="about-gradient">
+        I’m a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning projects. My background includes industry work with large-scale datasets, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality, metrics, and decision-making. During my Master’s in Data Science at Rochester Institute of Technology, I expanded into predictive modeling, multimodal deep learning, and rigorous model evaluation, while also supporting analytics workflows and reporting as a graduate assistant. I’m particularly interested in building data systems and models that are reliable, well-evaluated, and genuinely useful, translating complex data into insights that teams can trust and act on.
+      </p>
+      <a href="#projects" class="btn">View My Work</a>
+      <a href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view?usp=drive_link" class="btn" target="_blank">Download Resume</a>
+    </div>
+
+    <div class="about-image">
+      <img src="images/profile_pic.png" alt="Profile Photo">
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <h2>Work Experience</h2>
+
+  <div class="experience-card">
+    <h3>Quality Analyst — Amazon</h3>
+    <span>2019 – 2023</span>
+    <ul>
+      <li>Built SQL pipelines to validate and monitor pricing data.</li>
+      <li>Analyzed large datasets to identify anomalies and quality issues.</li>
+      <li>Translated findings into actionable insights for stakeholders.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h3>Graduate Teaching Assistant — RIT</h3>
+    <span>2024 – Present</span>
+    <ul>
+      <li>Supported visual analytics coursework.</li>
+      <li>Helped students communicate insights through visualization.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+
+  <h3>Featured Projects</h3>
+  <div class="featured-projects">
+    <div class="project-card">
+      <img src="project1.jpg" alt="">
+      <h4>Retail Sales Analysis – FastKart</h4>
+      <p>SQL-based analysis of revenue, conversion, and sales trends.</p>
+    </div>
+
+    <div class="project-card">
+      <img src="project2.jpg" alt="">
+      <h4>User Engagement Analytics Pipeline</h4>
+      <p>Snowflake SQL pipeline for session, funnel, and retention analysis.</p>
+    </div>
+  </div>
+
+  <h3>All Projects</h3>
+  <div class="project-grid">
+    <div class="project-card">
+      <h4>Hospital Readmission Prediction</h4>
+      <p>Logistic regression and cost impact modeling.</p>
+    </div>
+    <div class="project-card">
+      <h4>Image–Caption Ranking Model</h4>
+      <p>Multimodal deep learning with rigorous evaluation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+
+  <div class="skills-grid">
+    <div>
+      <h4>Languages</h4>
+      <p>Python, SQL, R</p>
+    </div>
+    <div>
+      <h4>Machine Learning</h4>
+      <p>Regression, Classification, Evaluation, EDA</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <p>Snowflake, Git, Tableau, Power BI</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Feel free to reach out for opportunities or collaborations.</p>
+
+  <div class="contact-links">
+    <a href="mailto:email@example.com">Email</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Kezia Minni
+</footer>
+
+</body>
+</html>
