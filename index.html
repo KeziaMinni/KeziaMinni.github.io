@@ -51,46 +51,56 @@ body {
   line-height: 1.7;
   max-width: 700px;
 }
-
-/* ==============================
-   HERO SECTION
-   ============================== */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 10%;
-}
-
-.hero-name {
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 14px;
-  color: #ffffff;
-}
-
-.hero-highlight {
-  background: linear-gradient(120deg, #B13BFF, #FFCC00);
+.gradient-text {
+  background: linear-gradient(90deg, #b13bff, #ffcc00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.hero-role {
-  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
-  font-weight: 500;
-  color: var(--text-muted);
+/* ==============================
+   HERO SECTION
+   ============================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 0 20px;
 }
 
-.hero-actions {
-  margin-top: 36px;
+.hero-name {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.hero-role {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  color: #cbd5f5;
+  max-width: 720px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.hero-buttons {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
+
 
 
 /* ==============================
@@ -380,13 +390,26 @@ nav a:hover {
 }
 
 .project-card {
-  background: #1f1f2e;
+  /*background: #1f1f2e;*/
   border-radius: 16px;
   padding: 16px;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
+.project-card {
+  background: linear-gradient(
+    145deg,
+    rgba(6, 80, 132, 0.9),
+    rgba(50, 10, 107, 0.9)
+  );
+  border-radius: 18px;
+  padding: 16px;
+  cursor: pointer;
+  border: 1px solid rgba(120, 185, 181, 0.25);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 .project-card:hover {
   transform: translateY(-4px);
 }
@@ -540,7 +563,22 @@ nav a:hover {
   color: var(--text-muted);
 }
 
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
 
+.skill-tags span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: rgba(120, 185, 181, 0.12);
+  color: #E6F7F6;
+  border: 1px solid rgba(120, 185, 181, 0.25);
+  white-space: nowrap;
+}
 /* ==============================
    CONTACT
    ============================== */
@@ -608,30 +646,26 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-<section id="home" class="hero-section">
-  <div class="hero-content">
+<section class="hero">
+  <h1 class="hero-name">
+    Kezia <span class="gradient-text">Minni</span>
+  </h1>
 
-    <h1 class="hero-name">
-      Kezia <span class="hero-highlight">Minni</span>
-    </h1>
+  <p class="hero-role">
+    Data Scientist building reliable analytics and machine learning systems
+  </p>
 
-    <h2 class="hero-role">
-      Data Scientist building reliable analytics and machine learning systems
-    </h2>
+  <p class="hero-subtext">
+    I build analytical pipelines and machine learning models that turn complex data into
+    reliable, decision-ready insights across industry and applied research.
+  </p>
 
-    <div class="hero-actions">
-      <a href="#projects" class="btn">View My Work</a>
-      <a
-        href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view?usp=drive_link"
-        class="btn btn-secondary"
-        target="_blank"
-      >
-        Download Resume
-      </a>
-    </div>
-
+  <div class="hero-buttons">
+    <a href="#projects" class="btn primary">View My Work</a>
+    <a href="resume.pdf" class="btn secondary">Download Resume</a>
   </div>
 </section>
+
 
 <!-- ABOUT -->
 <section id="about" class="section">
@@ -674,9 +708,9 @@ footer {
 
     <ul>
       <li>Built standardized <strong>Python and R analytics workflows</strong> supporting 50+ graduate researchers, improving consistency and reliability across end-to-end data pipelines.</li>
-      <li>Created visual and tabular summaries to help faculty and students interpret statistical results and analytical trends.</li>
+      <li>Created <strong>visual and tabular summaries</strong> to help faculty and students interpret statistical results and analytical trends.</li>
       <li>Reviewed and evaluated <strong>100+ analytics projects</strong>, assessing data quality, methodology, and result validity.</li>
-      <li>Collaborated with faculty and data science students from raw data ingestion through final insight presentation.</li>
+      <li><strong>Collaborated cross-functionally with faculty</strong>, data science students, and research teams to support analytics execution from raw data ingestion through final insight presentation.</li>
     </ul>
   </div>
 
@@ -697,7 +731,7 @@ footer {
       <li>Designed and owned <strong>Tableau dashboards</strong> tracking pricing performance, operational KPIs, and funnel metrics.</li>
       <li>Applied <strong>statistical analysis and A/B testing</strong> to evaluate pricing strategies, reducing decision cycles by 20%.</li>
       <li>Analyzed <strong>10M+ row datasets</strong> to identify anomalies, data quality issues, and systemic trends.</li>
-      <li>Partnered with operations, compliance, and program stakeholders to define metrics and communicate insights through clear reports.</li>
+      <li><strong>Partnered with operations, compliance, and program stakeholders</strong> to define metrics and communicate insights through clear reports.</li>
     </ul>
   </div>
 
@@ -715,9 +749,9 @@ footer {
 
     <ul>
       <li>Applied <strong>SQL-based analysis</strong> and statistical techniques to streamline reporting workflows and reduce errors.</li>
-      <li>Conducted large-scale pricing audits and trend analysis impacting millions of product listings.</li>
+      <li>Conducted <strong>large-scale pricing audits and trend analysis</strong> impacting millions of product listings.</li>
       <li>Mentored <strong>20+ team members</strong> on analytics tools, data validation standards, and audit methodologies.</li>
-      <li>Translated recurring operational patterns into process improvements adopted across multiple retail workflows.</li>
+      <li><strong>Translated recurring operational patterns into process improvements</strong> adopted across multiple retail workflows.</li>
     </ul>
   </div>
 </section>
@@ -803,84 +837,92 @@ footer {
 </section>
 
 
-<!-- SKILLS -->
 <section id="skills" class="section">
   <h2>Technical Skills</h2>
 
   <div class="skills-grid">
 
-    <!-- Programming -->
     <div class="skill-card">
       <h3>Programming & Querying</h3>
-      <ul>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>R</li>
-        <li>Bash</li>
-        <li>HTML</li>
-        <li>CSS</li>
-      </ul>
+      <div class="skill-tags">
+        <span>Python</span>
+        <span>SQL</span>
+        <span>R</span>
+        <span>Bash</span>
+        <span>HTML</span>
+        <span>CSS</span>
+      </div>
     </div>
 
-    <!-- Data Science -->
     <div class="skill-card">
       <h3>Data Science & Machine Learning</h3>
-      <ul>
-        <li>Linear & Logistic Regression</li>
-        <li>Decision Trees, Random Forest, XGBoost</li>
-        <li>Classification & Clustering</li>
-        <li>Deep Learning (CNNs)</li>
-        <li>Natural Language Processing (NLP)</li>
-        <li>Feature Engineering</li>
-        <li>Model Evaluation & Cross-Validation</li>
-        <li>A/B Testing & Causal Inference</li>
-        <li>Statistical Modeling</li>
-      </ul>
+      <div class="skill-tags">
+        <span>Linear & Logistic Regression</span>
+        <span>Decision Trees</span>
+        <span>Random Forest</span>
+        <span>XGBoost</span>
+        <span>Classification</span>
+        <span>Clustering</span>
+        <span>Deep Learning (CNNs)</span>
+        <span>NLP</span>
+        <span>Feature Engineering</span>
+        <span>Model Evaluation</span>
+        <span>Cross-Validation</span>
+        <span>A/B Testing</span>
+        <span>Causal Inference</span>
+        <span>Statistical Modeling</span>
+      </div>
     </div>
 
-    <!-- Analytics -->
     <div class="skill-card">
       <h3>Analytics & Visualization</h3>
-      <ul>
-        <li>Exploratory Data Analysis (EDA)</li>
-        <li>KPI Design & Metrics Analysis</li>
-        <li>Funnel & Retention Analysis</li>
-        <li>Tableau</li>
-        <li>Power BI</li>
-        <li>Matplotlib, Seaborn, Plotly</li>
-        <li>ggplot2, R Markdown</li>
-        <li>Gephi, QGIS</li>
-        <li>Data Visualization</li>
-      </ul>
+      <div class="skill-tags">
+        <span>EDA</span>
+        <span>KPI & Metrics Analysis</span>
+        <span>Funnel Analysis</span>
+        <span>Retention Analysis</span>
+        <span>Tableau</span>
+        <span>Power BI</span>
+        <span>Matplotlib</span>
+        <span>Seaborn</span>
+        <span>Plotly</span>
+        <span>ggplot2</span>
+        <span>R Markdown</span>
+        <span>Gephi</span>
+        <span>QGIS</span>
+        <span>Data Visualization</span>
+      </div>
     </div>
 
-    <!-- Data Systems -->
     <div class="skill-card">
       <h3>Data Engineering & Systems</h3>
-      <ul>
-        <li>SQL-Based Reporting Pipelines</li>
-        <li>Data Validation & Quality Checks</li>
-        <li>Workflow Automation</li>
-        <li>Snowflake</li>
-        <li>MySQL, PostgreSQL</li>
-        <li>SQL Server, Oracle</li>
-        <li>APIs</li>
-      </ul>
+      <div class="skill-tags">
+        <span>SQL-Based Reporting Pipelines</span>
+        <span>Data Validation</span>
+        <span>Workflow Automation</span>
+        <span>Snowflake</span>
+        <span>MySQL</span>
+        <span>PostgreSQL</span>
+        <span>SQL Server</span>
+        <span>Oracle</span>
+        <span>APIs</span>
+      </div>
     </div>
 
-    <!-- Tools -->
     <div class="skill-card">
       <h3>Tools & Platforms</h3>
-      <ul>
-        <li>TensorFlow, Keras</li>
-        <li>Git & GitHub</li>
-        <li>Jupyter</li>
-        <li>VS Code</li>
-        <li>Anaconda</li>
-        <li>Google Colab</li>
-        <li>Excel</li>
-        <li>SnowSQL</li>
-      </ul>
+      <div class="skill-tags">
+        <span>TensorFlow</span>
+        <span>Keras</span>
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>Jupyter</span>
+        <span>VS Code</span>
+        <span>Anaconda</span>
+        <span>Google Colab</span>
+        <span>Excel</span>
+        <span>SnowSQL</span>
+      </div>
     </div>
 
   </div>
@@ -909,7 +951,7 @@ footer {
       GitHub
     </a>
 
-    <a href="https://drive.google.com/file/d/14OROBPEN1CSKQLaAoy_vQEXBcvRjaNQ4/view"
+    <a href="https://drive.google.com/file/d/1GKxVs5LU5I2JiM7CCXEB_6nqV5JMw3-o/view?usp=drive_link"
        target="_blank"
        class="contact-btn outline">
       Resume
