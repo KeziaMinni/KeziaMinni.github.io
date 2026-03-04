@@ -237,10 +237,16 @@ nav a:hover {
 }
 
 .about-image img {
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-}
+  width: 280px;
+  height: 280px;
 
+  object-fit: cover;
+  object-position: 50% 40%;   /* moves image lower */
+
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.08);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
 /* ==============================
    EXPERIENCE – LINKEDIN STYLE
    ============================== */
@@ -768,7 +774,7 @@ footer {
     </div>
 
     <div class="about-image">
-      <img src="images/pro_pic.png" alt="Profile Photo">
+      <img src="images/kez_pic.jpg" alt="Kezia Minni">
     </div>
   </div>
 </section>
