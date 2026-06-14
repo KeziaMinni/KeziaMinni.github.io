@@ -1,1299 +1,1935 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kezia Minni | Data Scientist</title>
-
-  <style>
- :root {
-  --bg: #0B0B0D;
-  --bg-soft: #111113;
-  --card: #1A1A1D;
-
-  --primary: #4CC9F0;
-  --secondary: #5B8DEF;
-  --accent: #7B61FF;
-  --accent-strong: #B517FF;
-
-  --text: #FFFFFF;
-  --text-muted: #A1A1AA;
-
-  --gradient-main: linear-gradient(
-    90deg,
-    #4CC9F0,
-    #5B8DEF,
-    #7B61FF,
-    #B517FF
-  );
-}
-/* ==============================
-   RESET
-   ============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.65;
-}
-
-.about-gradient {
-  font-size: 1.15rem;
-  line-height: 1.75;
-  margin-bottom: 0.9em;
-
-  background: linear-gradient(
-    120deg,
-    #4CC9F0,
-    #5B8DEF,
-    #7B61FF,
-    #B517FF
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  max-width: 700px;
-}
-.gradient-text {
-  background: var(--gradient-main);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ==============================
-   HERO SECTION
-   ============================== */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  padding: 0 20px;
-}
-
-.hero-name {
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.hero-role {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #e5e7eb;
-  margin-bottom: 20px;
-  max-width: 900px;
-}
-
-.hero-subtext {
-  font-size: 1rem;
-  color: #cbd5f5;
-  max-width: 720px;
-  line-height: 1.6;
-  margin-bottom: 36px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-
-
-/* ==============================
-   GLOBAL ELEMENTS
-   ============================== */
-a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.section {
-  padding: 90px 10%;
-}
-
-h1 {
-  font-size: 2.8rem;
-}
-
-h2 {
-  font-size: 2.1rem;
-  margin-bottom: 32px;
-  border-left: 4px solid var(--primary);
-  padding-left: 14px;
-}
-
-h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-}
-
-h4 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-
-p {
-  max-width: 650px;
-  color: var(--text-muted);
-}
-
-/* ==============================
-   NAVIGATION
-   ============================== */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(11,11,13,0.9);
-  backdrop-filter: blur(10px);
-  padding: 22px 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav strong {
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 26px;
-}
-
-nav a {
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-/* ==============================
-   BUTTONS
-   ============================== */
-.btn {
-  display: inline-block;
-  margin-top: 28px;
-  padding: 14px 28px;
-  background: var(--gradient-main);
-  color: white;
-  font-weight: 600;
-  border-radius: 12px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(177, 59, 255, 0.45);
-}
-
-/* ==============================
-   ABOUT SECTION
-   ============================== */
-.about-container {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: center;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.about-text h2 {
-  border-left: none;
-  padding-left: 0;
-  color: var(--primary);
-  font-weight: 500;
-}
-
-.about-image img {
-  width: 280px;
-  height: 280px;
-
-  object-fit: cover;
-  object-position: 50% 40%;   /* moves image lower */
-
-  border-radius: 50%;
-  border: 4px solid rgba(255,255,255,0.08);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-}
-/* ==============================
-   EXPERIENCE – LINKEDIN STYLE
-   ============================== */
-  /* Header block inside card */
-/* Center cards */
-.experience-card {
-  max-width: 900px;
-  margin: 0 auto 26px auto;
-  background: #1A1A1D;
-  padding: 26px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-}
-
-/* Header layout */
-.experience-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-.company-logo {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  background: #ffffff;
-  padding: 6px;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.experience-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.company-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.role-name {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
-.experience-details {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* Bullets */
-.experience-card ul {
-  margin-top: 14px;
-  padding-left: 18px;
-}
-
-.experience-card li {
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-
-/* Gradient highlights */
-.experience-card strong {
-  font-weight: 700;
-  background: linear-gradient(90deg, #B13BFF, #FFCC00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* ==============================
-   EDUCATION
-   ============================== */
-   .education-impact {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-
-.education-impact span {
-  background: rgba(255,255,255,0.08);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.education-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.education-tags span {
-  background: rgba(123,97,255,0.12);
-  border: 1px solid rgba(123,97,255,0.25);
-  padding: 5px 10px;
-  font-size: 0.8rem;
-  border-radius: 999px;
-}
-
-.education-card {
-  max-width: 900px;
-  margin: 0 auto;
-  background: linear-gradient(
-    145deg,
-    rgba(91,141,239,0.15),
-    rgba(123,97,255,0.15)
-  );
-  padding: 26px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-}
-
-.education-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-.education-logo {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  background: #ffffff;
-  padding: 6px;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.education-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.institution-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.degree {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
-.education-details {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.education-list {
-  margin-top: 14px;
-  padding-left: 18px;
-}
-
-.education-list li {
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-
-.education-list strong {
-  font-weight: 700;
-  background: linear-gradient(90deg, var(--accent), var(--primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
-
-/* ==============================
-   PROJECTS
-   ============================== */
-.featured-projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: 36px;
-  margin-bottom: 60px;
-}
-
-.project-tag.genai {
-  background: linear-gradient(90deg, #7B61FF, #B517FF);
-}
-
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.project-card {
-  /*background: #1f1f2e;*/
-  border-radius: 16px;
-  padding: 16px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.project-card {
-  background: #1A1A1D;
-  border-radius: 20px;
-  padding: 20px;
-  cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-
-  transition: transform 0.35s ease,
-              box-shadow 0.35s ease,
-              border 0.35s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.project-card img {
-  width: 100%;
-  height: 180px;              /* 🔑 fixed height */
-  object-fit: cover;          /* 🔑 crop, don’t stretch */
-  border-radius: 12px;
-  margin-bottom: 14px;
-}
-
-/* ==============================
-   PROJECT CATEGORY TAGS
-   ============================== */
-
-.project-card {
-  position: relative;
-}
-
-.project-tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 6px 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 999px;
-  color: #fff;
-  z-index: 2;
-  backdrop-filter: blur(6px);
-}
-
-/* Category colors */
-.project-tag.ml {
-  background: linear-gradient(90deg, #78B9B5, #0F828C);
-}
-
-.project-tag.analytics {
-  background: linear-gradient(90deg, #0F828C, #065084);
-}
-
-.project-tag.data-eng {
-  background: linear-gradient(90deg, #065084, #320A6B);
-}
-
-.project-tag.nlp {
-  background: linear-gradient(90deg, #78B9B5, #065084);
-}
-
-.project-tag.cv {
-  background: linear-gradient(90deg, #0F828C, #320A6B);
-}
-
-
-/* MODAL */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: #2a2a3d;
-  max-width: 700px;
-  padding: 28px;
-  border-radius: 18px;
-}
-
-.modal-close {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.tool-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.tool-chip {
-  background: #3b3b5a;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
-
-/* ==============================
-   MODAL SCROLLING CONTENT
-   ============================== */
-
-.modal-content {
-  max-height: 85vh;              /* modal never exceeds screen */
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-scroll {
-  overflow-y: auto;              /* enable internal scrolling */
-  padding-right: 6px;            /* space for scrollbar */
-}
-
-/* Optional: smooth scrollbar (Chrome/Edge) */
-.modal-scroll::-webkit-scrollbar {
-  width: 6px;
-}
-
-.modal-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.25);
-  border-radius: 10px;
-}
-
-.experience-impact {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
-
-.experience-impact span {
-  background: rgba(255,255,255,0.08);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.experience-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.experience-tags span {
-  background: rgba(177,59,255,0.12);
-  border: 1px solid rgba(177,59,255,0.25);
-  padding: 5px 10px;
-  font-size: 0.8rem;
-  border-radius: 999px;
-}
-
-/* ==============================
-   SKILLS
-   ============================== */
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.skill-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-.skill-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, var(--accent), var(--primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.skill-card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.skill-tags span {
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  background: rgba(120, 185, 181, 0.12);
-  color: #E6F7F6;
-  border: 1px solid rgba(120, 185, 181, 0.25);
-  white-space: nowrap;
-}
-/* ==============================
-   CONTACT
-   ============================== */
-.contact-links {
-  margin-top: 26px;
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.contact-links a {
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.contact-links a:hover {
-  color: var(--accent);
-}
-
-/* ==============================
-   FOOTER
-   ============================== */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* ==============================
-   RESPONSIVE
-   ============================== */
-@media (max-width: 900px) {
-  .section {
-    padding: 70px 8%;
-  }
-
-  .about-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .about-text p {
-    margin: 0 auto;
-  }
-
-  nav ul {
-    gap: 18px;
-  }
-}
-
-  </style>
+  <title>Kezia Minni — Field Notes</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
-
 <body>
 
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
 <!-- NAV -->
-<nav>
-  <strong>KM</strong>
+<nav id="nav">
+  <span class="nav-notebook-label">FIELD NOTES — <strong>KM</strong> &nbsp;·&nbsp; <span id="nav-page">pg. 01 / cover</span></span>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-<section class="hero">
-  <h1 class="hero-name">
-    Kezia <span class="gradient-text">Minni</span>
-  </h1>
 
-  <p class="hero-role">
-    Data Scientist building reliable analytics and machine learning systems
-  </p>
+<!-- HERO -->
+<section class="hero grid-paper" id="cover">
+  <!-- cat lives here, absolute over the whole hero -->
+  <canvas id="cat-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:10;"></canvas>
 
-  <p class="hero-subtext">
-    I build analytical pipelines and machine learning models that turn complex data into
-    reliable, decision-ready insights across industry and applied research.
-  </p>
+  <div class="hero-left">
+    <div class="hero-stamp">● OPEN TO WORK &nbsp;·&nbsp; 2026</div>
 
-  <div class="hero-buttons">
-    <a href="#projects" class="btn primary">View My Work</a>
-    <a href="https://drive.google.com/file/d/1r6BxT1qUzUZSB-GypMCMZ2RxrfBMILqk/view?usp=sharing" class="btn secondary">Download Resume</a>
+    <h1 class="hero-name">Kezia Minni</h1>
+    <p class="hero-subname">Data Scientist &nbsp;·&nbsp; Experimentation &amp; Causal Inference</p>
+
+    <p class="hero-tagline">
+      "I turn ambiguous data into<br>decisions people can actually trust."
+    </p>
+
+    <div class="hero-ctas">
+      <a href="https://drive.google.com/file/d/1GzvhHKBE6N0D0bWMZa0f_IvfRc3o-O-c/view?usp=sharing" target="_blank" class="btn-primary magnetic">View Resume &nbsp;→</a>
+      <a href="#contact" class="btn-outline magnetic">Get in Touch</a>
+      <a href="https://github.com/KeziaMinni" target="_blank" class="btn-icon magnetic" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/kezia-minni-368565137/" target="_blank" class="btn-icon magnetic" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+
+    <span class="hero-page-num">pg. 01</span>
+  </div>
+
+  <div class="hero-right">
+    <canvas id="sketch-canvas" height="260"></canvas>
+    <div class="hero-stat-band">
+      <div class="hero-stat">
+        <span class="stat-num" data-count="10" data-suffix="M+">10M+</span>
+        <span class="stat-label">records processed @ Amazon</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num" data-count="3.85" data-decimal="2" data-suffix="">3.85</span>
+        <span class="stat-label">GPA — M.S. Data Science, RIT</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num" data-count="86" data-suffix="%">86%</span>
+        <span class="stat-label">caption ranking accuracy (research)</span>
+      </div>
+    </div>
   </div>
 </section>
 
-
 <!-- ABOUT -->
-<section id="about" class="section">
-  <div class="about-container">
-    <div class="about-text">
-      <h1>About Me</h1>
-      <p class="about-gradient">
-        I’m a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning projects. My background includes industry work with large-scale datasets, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality, metrics, and decision-making.</p>
+<canvas class="botanical-divider" data-side="both"></canvas>
+<section id="about" class="section lined-paper">
+  <div class="section-tab reveal">About</div>
+  <h2 class="section-heading reveal">A little about me</h2>
 
-        <p class="about-gradient">
-         During my Master’s in Data Science at Rochester Institute of Technology, I expanded into predictive modeling, multimodal deep learning, and rigorous model evaluation, while also supporting analytics workflows and reporting as a graduate assistant. I’m particularly interested in building data systems and models that are reliable, well-evaluated, and genuinely useful, translating complex data into insights that teams can trust and act on.
-      </p>
-      <div class="about-actions">
-        <a href="#experience" class="btn">Discover More</a>
-        <a href="#contact" class="btn">Connect</a>
+  <div class="about-grid">
+    <div class="about-sidebar reveal-left">
+      <div class="pull-quote">"The hard part isn't the model — it's the question."</div>
+
+      <div class="about-card" data-label="current status">
+        <div class="about-card-row"><span class="key">role</span><span class="val">Data Scientist</span></div>
+        <div class="about-card-row"><span class="key">org</span><span class="val">Greenstand</span></div>
+        <div class="about-card-row"><span class="key">location</span><span class="val">Boston, MA</span></div>
+        <div class="about-card-row"><span class="key">status</span><span class="val" style="color:var(--rust)">Open to work</span></div>
+      </div>
+
+      <div class="about-card" data-label="contact">
+        <div class="about-card-row"><span class="key">email</span><span class="val"><a href="mailto:makezia7@gmail.com" style="color:var(--rust)">makezia7@gmail.com</a></span></div>
+        <div class="about-card-row"><span class="key">focus</span><span class="val">A/B Testing &amp; ML</span></div>
+        <div class="about-card-row"><span class="key">degree</span><span class="val">M.S. DS, RIT</span></div>
       </div>
     </div>
 
-    <div class="about-image">
-      <img src="images/kez_pic.jpg" alt="Kezia Minni">
+    <div class="about-body" style="position:relative;">
+      <p class="reveal">
+        I'm a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning. My background includes industry work with large-scale datasets at Amazon, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality and decision-making.
+      </p>
+      <span class="margin-note reveal" style="top:40px;">← built pipelines processing 10M+ rows</span>
+
+      <p class="reveal delay-1">
+        During my Master's in Data Science at RIT, I expanded into predictive modeling, multimodal deep learning, and rigorous model evaluation — while also supporting analytics workflows as a graduate teaching assistant. I'm particularly drawn to the hard part: translating ambiguous, messy problems into structured hypotheses.
+      </p>
+      <span class="margin-note reveal delay-1" style="top:240px;">← research with Prof. Yu (CLIP/BLIP)</span>
+
+      <p class="reveal delay-2">
+        Right now I'm at Greenstand designing scoring models for large-scale tree tracking data. I'm also open to data science and analytics engineering roles where experimentation, causal inference, and building trustworthy systems are core to the work.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="section">
-  <h2>Work Experience</h2>
-  <!-- Greenstand -->
-<div class="experience-card">
-  <div class="experience-header">
-    <img src="images/greenstand.png" alt="Greenstand logo" class="company-logo">
+<canvas class="botanical-divider" data-side="left"></canvas>
+<section id="experience" class="section grid-paper" style="position:relative;">
+  <canvas id="bird-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;"></canvas>
+  <div class="section-tab reveal">Experience</div>
+  <h2 class="section-heading reveal">Where I've made an impact</h2>
 
-    <div class="experience-meta">
-      <div class="company-name">Greenstand</div>
-      <div class="role-name">Data Scientist</div>
-      <div class="experience-details">Feb 2026 – Present · Rochester, USA</div>
-    </div>
-  </div>
-<div class="experience-impact">
-    <span>30% clearer match signals</span>
-    <span>25% fewer ambiguous cases</span>
-    <span>40% faster reviewer decisions</span>
-  </div>
-  <ul>
-    <li>Engineered a <strong>match strength scoring system</strong> combining GPS distance, grower matching, and capture timing signals, improving match clarity for large-scale tree tracking data.</li>
+  <div class="tree-wrap">
+    <!-- SVG trunk + branches drawn by JS -->
+    <svg id="tree-svg" class="tree-svg" aria-hidden="true"></svg>
 
-    <li>Defined <strong>data-driven thresholds for distance and capture timing</strong>, reducing ambiguous match cases and accelerating reviewer decision cycles.</li>
+    <!-- entries alternate left / right -->
+    <div class="tree-entries">
 
-    <li>Designed <strong>distance badges and capture history dashboards</strong> enabling reviewers to interpret capture relationships faster with significantly less manual lookup.</li>
+      <div class="tree-entry left reveal" data-branch="0">
+        <div class="tree-card">
+          <div class="tree-card-header">
+            <div>
+              <div class="exp-company">Greenstand</div>
+              <div class="exp-role">Data Scientist</div>
+              <div class="exp-location">Boston, MA · Feb 2026 – Present</div>
+            </div>
+            <div class="exp-impact-badges">
+              <span class="impact-badge">+30% accuracy</span>
+              <span class="impact-badge">GPS modeling</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span><span class="exp-tag">Geospatial</span><span class="exp-tag">Analytics Pipelines</span><span class="exp-tag">Product Analytics</span>
+          </div>
+          <div class="exp-stat-row">
+            <div class="exp-stat"><span class="exp-stat-num">30%</span><span class="exp-stat-label">accuracy lift</span></div>
+            <div class="exp-stat"><span class="exp-stat-num">GPS</span><span class="exp-stat-label">signal model</span></div>
+            <div class="exp-stat"><span class="exp-stat-num">ETL</span><span class="exp-stat-label">quality overhaul</span></div>
+          </div>
+          <div class="exp-content"><ul>
+            <li>Designed and validated a Python scoring model using GPS distance, grower identity, and timing signals — <strong>improved verification accuracy by 30%.</strong></li>
+            <li>Investigated ETL issues, GPS inconsistencies, and labeling errors for high-quality feature inputs.</li>
+            <li>Formulated and tested hypotheses using statistical analysis to validate model performance.</li>
+            <li>Built analytical frameworks translating ambiguous business problems into data-supported solutions.</li>
+          </ul></div>
+        </div>
+        <div class="tree-dot"></div>
+      </div>
 
-    <li>Built lightweight <strong>analytics pipelines tracking match rates, review time, and spatial patterns</strong>, surfacing operational bottlenecks and informing product improvements.</li>
-  </ul>
-  <div class="experience-tags">
-    <span>Python</span>
-    <span>Geospatial Data</span>
-    <span>Analytics Pipelines</span>
-    <span>Product Analytics</span>
-  </div>
+      <div class="tree-entry right reveal delay-1" data-branch="1">
+        <div class="tree-dot"></div>
+        <div class="tree-card">
+          <div class="tree-card-header">
+            <div>
+              <div class="exp-company">RIT</div>
+              <div class="exp-role">Graduate Teaching Assistant</div>
+              <div class="exp-location">Rochester, NY · Aug–Dec 2025</div>
+            </div>
+            <div class="exp-impact-badges">
+              <span class="impact-badge">50+ students</span>
+              <span class="impact-badge">100+ projects</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span><span class="exp-tag">R</span><span class="exp-tag">Statistical Modeling</span><span class="exp-tag">Data Visualization</span>
+          </div>
+          <div class="exp-stat-row">
+            <div class="exp-stat"><span class="exp-stat-num">50+</span><span class="exp-stat-label">students supported</span></div>
+            <div class="exp-stat"><span class="exp-stat-num">100+</span><span class="exp-stat-label">projects evaluated</span></div>
+          </div>
+          <div class="exp-content"><ul>
+            <li>Designed repeatable test pipelines in Python and R covering data preparation, feature validation, and QA workflows.</li>
+            <li>Evaluated 100+ analytics projects for statistical rigor and hypothesis testing methodology.</li>
+          </ul></div>
+        </div>
+      </div>
 
-</div>
-  <!-- RIT -->
-  <div class="experience-card">
+      <div class="tree-entry left reveal delay-2" data-branch="2">
+        <div class="tree-card">
+          <div class="tree-card-header">
+            <div>
+              <div class="exp-company">Amazon</div>
+              <div class="exp-role">Data Quality Analyst</div>
+              <div class="exp-location">Chennai, India · Dec 2019 – Jul 2022</div>
+            </div>
+            <div class="exp-impact-badges">
+              <span class="impact-badge">10M+ records</span>
+              <span class="impact-badge">-18% errors</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">SQL</span><span class="exp-tag">Tableau</span><span class="exp-tag">A/B Testing</span><span class="exp-tag">Power BI</span>
+          </div>
+          <div class="exp-stat-row">
+            <div class="exp-stat"><span class="exp-stat-num">10M+</span><span class="exp-stat-label">records processed</span></div>
+            <div class="exp-stat"><span class="exp-stat-num">18%</span><span class="exp-stat-label">fewer exceptions</span></div>
+            <div class="exp-stat"><span class="exp-stat-num">A/B</span><span class="exp-stat-label">pricing experiments</span></div>
+          </div>
+          <div class="exp-content"><ul>
+            <li>Built automated SQL validation pipelines processing <strong>10M+ pricing records</strong> across global marketplaces.</li>
+            <li>Analyzed disparate data sources, <strong>reducing recurring exceptions by 18%.</strong></li>
+            <li>Built Tableau and Power BI dashboards for real-time pricing volatility monitoring.</li>
+            <li>Applied anomaly detection and statistical analysis to diagnose root causes.</li>
+          </ul></div>
+        </div>
+        <div class="tree-dot"></div>
+      </div>
 
-  <div class="experience-header">
-    <img src="images/rit.png" alt="RIT logo" class="company-logo">
+      <div class="tree-entry right reveal delay-3" data-branch="3">
+        <div class="tree-dot"></div>
+        <div class="tree-card">
+          <div class="tree-card-header">
+            <div>
+              <div class="exp-company">Amazon</div>
+              <div class="exp-role">Retail Process Associate</div>
+              <div class="exp-location">Chennai, India · Jun 2017 – Nov 2019</div>
+            </div>
+            <div class="exp-impact-badges">
+              <span class="impact-badge">-10% errors</span>
+              <span class="impact-badge">20+ mentored</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">SQL</span><span class="exp-tag">Data Quality</span><span class="exp-tag">Retail Analytics</span>
+          </div>
+          <div class="exp-stat-row">
+            <div class="exp-stat"><span class="exp-stat-num">10%</span><span class="exp-stat-label">error reduction</span></div>
+            <div class="exp-stat"><span class="exp-stat-num">20+</span><span class="exp-stat-label">analysts mentored</span></div>
+          </div>
+          <div class="exp-content"><ul>
+            <li>Reduced reporting errors by 10% using SQL to detect catalog anomalies across large-scale datasets.</li>
+            <li>Mentored 20+ analysts on querying and data validation best practices.</li>
+          </ul></div>
+        </div>
+      </div>
 
-    <div class="experience-meta">
-      <div class="company-name">Rochester Institute of Technology</div>
-      <div class="role-name">Graduate Teaching Assistant</div>
-      <div class="experience-details">Aug 2025 – Dec 2025 · Rochester, USA</div>
-    </div>
-  </div>
-
-  <div class="experience-impact">
-    <span>50+ researchers supported</span>
-    <span>100+ projects evaluated</span>
-    <span>Standardized analytics workflows</span>
-  </div>
-
-  <ul>
-    <li>Designed <strong>Python and R analytics workflows</strong> supporting graduate research projects across multiple data science domains.</li>
-
-    <li>Evaluated <strong>100+ analytics projects</strong> on methodology, statistical validity, and data quality.</li>
-
-    <li>Created <strong>visual and tabular summaries</strong> helping researchers interpret complex statistical results.</li>
-
-    <li>Collaborated with faculty to translate <strong>technical findings into accessible insights</strong> for diverse audiences.</li>
-  </ul>
-
-  <div class="experience-tags">
-    <span>Python</span>
-    <span>R</span>
-    <span>Statistical Modeling</span>
-    <span>Data Visualization</span>
-  </div>
-
-</div>
-
-  <!-- Amazon - Quality Analyst -->
-  <div class="experience-card">
-
-  <div class="experience-header">
-    <img src="images/amazon.png" alt="Amazon logo" class="company-logo">
-
-    <div class="experience-meta">
-      <div class="company-name">Amazon</div>
-      <div class="role-name">Data Quality Analyst</div>
-      <div class="experience-details">Dec 2019 – Jul 2022 · Chennai, India</div>
-    </div>
-  </div>
-
-  <div class="experience-impact">
-    <span>10M+ rows analyzed</span>
-    <span>20% faster reporting</span>
-    <span>20% faster decision cycles</span>
-  </div>
-
-  <ul>
-    <li>Built <strong>SQL pipelines processing 10M+ records</strong> for pricing evaluation, anomaly detection, and operational analytics.</li>
-
-    <li>Designed and analyzed <strong>A/B tests on pricing strategies</strong> improving decision confidence across retail operations.</li>
-
-    <li>Developed <strong>Tableau dashboards tracking pricing volatility and performance</strong> for operations and compliance teams.</li>
-
-    <li>Partnered with cross-functional stakeholders to define <strong>business metrics and resolve data inconsistencies</strong>.</li>
-  </ul>
-
-  <div class="experience-tags">
-    <span>SQL</span>
-    <span>Tableau</span>
-    <span>A/B Testing</span>
-    <span>Data Analytics</span>
-  </div>
-
-</div>
-
-  <!-- Amazon - Retail Process Associate -->
-  <div class="experience-card">
-
-  <div class="experience-header">
-    <img src="images/amazon.png" alt="Amazon logo" class="company-logo">
-
-    <div class="experience-meta">
-      <div class="company-name">Amazon</div>
-      <div class="role-name">Retail Process Associate</div>
-      <div class="experience-details">Jun 2017 – Nov 2019 · Chennai, India</div>
-    </div>
-  </div>
-
-  <div class="experience-impact">
-    <span>Millions of listings audited</span>
-    <span>10% error reduction</span>
-    <span>20+ team members mentored</span>
-  </div>
-
-  <ul>
-    <li>Applied <strong>SQL-based analysis</strong> to streamline reporting workflows across large retail datasets.</li>
-
-    <li>Conducted <strong>large-scale pricing audits</strong> identifying systemic data issues across product listings.</li>
-
-    <li>Identified recurring operational patterns and translated insights into <strong>process improvements adopted across teams</strong>.</li>
-
-    <li>Mentored <strong>20+ team members</strong> on analytics tools, audit standards, and data validation practices.</li>
-  </ul>
-
-  <div class="experience-tags">
-    <span>SQL</span>
-    <span>Data Quality</span>
-    <span>Retail Analytics</span>
-    <span>Process Improvement</span>
-  </div>
-
-</div>
+    </div><!-- end tree-entries -->
+  </div><!-- end tree-wrap -->
+</section>
 
 <!-- EDUCATION -->
-<section id="education" class="section">
-  <h2>Education</h2>
+<canvas class="botanical-divider" data-side="right"></canvas>
+<section id="education" class="section lined-paper">
+  <div class="section-tab reveal">Education</div>
+  <h2 class="section-heading reveal">Academic record</h2>
 
- <div class="education-card">
-
-  <div class="education-header">
-    <img src="images/rit.png" alt="RIT logo" class="education-logo">
-
-    <div class="education-meta">
-      <div class="institution-name">
-        Rochester Institute of Technology
+  <div class="edu-notebook reveal">
+    <div class="edu-notebook-inner">
+      <span class="edu-tab-label">entry 001 · degree</span>
+      <div class="edu-institution">Rochester Institute of Technology</div>
+      <div class="edu-degree">Master of Science in Data Science · Aug 2023 – Dec 2025 · Rochester, NY</div>
+      <div class="edu-gpa-row">
+        <span class="edu-gpa" data-count="3.85" data-decimal="2">3.85</span>
+        <span class="edu-gpa-label">/ 4.0 GPA</span>
       </div>
-
-      <div class="degree">
-        Master of Science in Data Science
+      <p class="edu-note">
+        Focused on machine learning, statistical modeling, and applied research. Published research collaboration on multimodal image-caption ranking (ResNet-50 + SentenceTransformers). Also served as a Graduate Teaching Assistant supporting 50+ students across data science coursework.
+      </p>
+      <div class="coursework">
+        <span>Statistics &amp; Probability</span>
+        <span>A/B Testing &amp; Experimentation</span>
+        <span>Machine Learning</span>
+        <span>Applied Regression Analysis</span>
+        <span>Causal Inference</span>
+        <span>Exploratory Data Analysis</span>
+        <span>Database Design &amp; SQL</span>
+        <span>Data Visualization</span>
+        <span>Time-Series Analysis</span>
       </div>
-
-      <div class="education-details">
-        Aug 2023 – Dec 2025 · Rochester, USA
-      </div>
     </div>
-  </div>
-
-  <div class="education-impact">
-    <span>GPA 3.85 / 4.0</span>
-    <span>Machine Learning</span>
-    <span>Multimodal AI Research</span>
-  </div>
-
-  <ul class="education-list">
-    <li><strong>Core Areas:</strong> Machine Learning, Statistical Modeling, Data Mining, Visual Analytics</li>
-
-    <li><strong>Research Focus:</strong> Multimodal learning, comparative ranking models, and image-caption evaluation.</li>
-
-    <li><strong>Academic Role:</strong> Graduate Teaching Assistant supporting analytics workflows and research projects.</li>
-  </ul>
-
-  <div class="education-tags">
-    <span>Python</span>
-    <span>TensorFlow</span>
-    <span>Deep Learning</span>
-    <span>Statistics</span>
-  </div>
-
-</div>
-</section>
-
-<section id="projects" class="section">
-  <h2>Projects</h2>
-
-  <!-- FEATURED PROJECTS -->
-  <h3>Featured Projects</h3>
-  <div class="project-grid featured-projects">
-
-    <div class="project-card" onclick="openProject('herrestartAI')">
-      <span class="project-tag genai">GenAI</span>
-      <img src="images/herrestartAI.png" alt="HerRestartAI">
-      <h4>HerRestartAI – AI Financial Recovery Assistant</h4>
-      <p>GenAI financial assistant generating personalized recovery plans, budgets, and debt timelines.</p>
-    </div>
-    <div class="project-card" onclick="openProject('imageCaption')">
-      <span class="project-tag ml">Machine Learning</span>
-      <img src="images/image_caption_2.png" alt="Image Caption Ranking">
-      <h4>Image–Caption Ranking Model</h4>
-      <p>Multimodal deep learning system for ranking caption quality.</p>
-    </div>
-
-    <div class="project-card" onclick="openProject('retention')">
-      <span class="project-tag analytics">Analytics</span>
-      <img src="images/user_engagement.png" alt="User Retention">
-      <h4>User Engagement & Retention Analytics</h4>
-      <p>Snowflake SQL pipeline modeling sessions, funnels, and cohorts.</p>
-    </div>
-
-  </div>
-
-  <!-- ALL PROJECTS -->
-  <h3>Other Projects</h3>
-  <div class="project-grid">
-
-    <div class="project-card" onclick="openProject('insurance')">
-      <span class="project-tag ml">Machine Learning</span>
-      <img src="images/life_insurance_bonus.png" alt="">
-      <h4>Life Insurance Bonus Prediction</h4>
-      <p>Logistic regression and ML for bonus eligibility.</p>
-    </div>
-
-    <div class="project-card" onclick="openProject('pricing')">
-      <span class="project-tag analytics">Analytics</span>
-      <img src="images/fastkart.png" alt="">
-      <h4>Retail Pricing Anomaly Detection</h4>
-      <p>SQL-based anomaly detection on retail pricing data.</p>
-    </div>
-
-    <div class="project-card" onclick="openProject('nestegg')">
-      <span class="project-tag nlp">AI/ML</span>
-      <img src="images/nestegg.png" alt="">
-      <h4>AI Budgeting Assistant – NestEgg</h4>
-      <p>NLP-powered personal finance assistant.</p>
-    </div>
-
   </div>
 </section>
 
+<!-- PROJECTS -->
+<canvas class="botanical-divider" data-side="both"></canvas>
+<section id="projects" class="section grid-paper">
+  <div class="section-tab reveal">Projects</div>
+  <h2 class="section-heading reveal">Selected experiments</h2>
 
-<section id="skills" class="section">
-  <h2>Technical Skills</h2>
+  <!-- Filter buttons -->
+  <div class="project-filters reveal" id="project-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="genai">GenAI</button>
+    <button class="filter-btn" data-filter="ml">Machine Learning</button>
+    <button class="filter-btn" data-filter="analytics">Analytics</button>
+  </div>
+
+  <div class="project-board" id="project-board-featured">
+    <div class="project-card reveal" data-category="genai" onclick="openModal('herrestart')">
+      <span class="project-type-badge genai">GenAI</span>
+      <span class="project-tag">Python · FastAPI · Google Gemini</span>
+      <div class="project-title">HerRestartAI — AI Financial Recovery Assistant</div>
+      <p class="project-desc">Generative AI budgeting assistant producing personalized financial recovery plans using Google Gemini API and real cost-of-living data. Voice output via ElevenLabs TTS.</p>
+      <div class="project-links">
+        <a href="https://github.com/KeziaMinni/HerRestartAI" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+        <a href="https://her-restart-ai.vercel.app/" target="_blank" onclick="event.stopPropagation()">Live Demo ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal delay-1" data-category="ml" onclick="openModal('imagecaption')">
+      <span class="project-type-badge ml">Machine Learning</span>
+      <span class="project-tag">TensorFlow · ResNet-50 · SentenceTransformers</span>
+      <div class="project-title">Image–Caption Comparative Ranking</div>
+      <p class="project-desc">Multimodal ML pipeline on 15,646 image-caption pairs. ResNet-50 + SentenceTransformers (MiniLM). Pearson 0.76, 86% pairwise ranking accuracy across 7 runs.</p>
+      <div class="project-links"><a href="https://github.com/hil-se/comparative_image_caption" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+    </div>
+
+    <div class="project-card full-width reveal delay-2" data-category="analytics" onclick="openModal('retention')">
+      <span class="project-type-badge analytics">Analytics</span>
+      <span class="project-tag">SQL · Snowflake · dbt · Python</span>
+      <div class="project-title">User Engagement &amp; Retention Analytics Pipeline</div>
+      <p class="project-desc">Designed and analyzed A/B-style experiments and user behavior metrics to evaluate engagement, retention, and product performance. Snowflake SQL pipelines for sessionization, funnel analysis, and cohort-based retention. Translated behavioral insights into product optimization recommendations.</p>
+      <div class="project-links"><a href="https://github.com/KeziaMinni/user-engagement-retention-analytics-pipeline" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+    </div>
+  </div>
+
+  <div class="project-board three" id="project-board-secondary">
+    <div class="project-card reveal" data-category="ml" onclick="openModal('insurance')">
+      <span class="project-type-badge ml">Machine Learning</span>
+      <span class="project-tag">scikit-learn · Python</span>
+      <div class="project-title">Life Insurance Bonus Prediction</div>
+      <p class="project-desc">Logistic regression, decision trees, and clustering for bonus eligibility prediction. 18% reliability improvement.</p>
+      <div class="project-links"><a href="https://github.com/KeziaMinni/life-insurance-bonus-predictor" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+    </div>
+
+    <div class="project-card reveal delay-1" data-category="analytics" onclick="openModal('pricing')">
+      <span class="project-type-badge analytics">Analytics</span>
+      <span class="project-tag">SQL · MySQL</span>
+      <div class="project-title">Retail Pricing Anomaly Detection</div>
+      <p class="project-desc">SQL-based anomaly detection with threshold rules and pattern analysis on large-scale retail pricing data.</p>
+      <div class="project-links"><a href="https://github.com/KeziaMinni/sql-fastkart-retail-analysis" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+    </div>
+
+    <div class="project-card reveal delay-2" data-category="genai" onclick="openModal('nestegg')">
+      <span class="project-type-badge genai">GenAI</span>
+      <span class="project-tag">NLP · Google Gemini API</span>
+      <div class="project-title">NestEgg — AI Budgeting Assistant</div>
+      <p class="project-desc">NLP-powered personal finance assistant using Google Gemini API to classify transactions and generate spending insights.</p>
+      <div class="project-links"><a href="https://github.com/KeziaMinni/nestegg-financial-assistant" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<canvas class="botanical-divider" data-side="left"></canvas>
+<section id="skills" class="section lined-paper">
+  <div class="section-tab reveal">Skills</div>
+  <h2 class="section-heading reveal">Technical toolkit</h2>
 
   <div class="skills-grid">
-
-    <div class="skill-card">
-      <h3>Programming & Querying</h3>
-      <div class="skill-tags">
-        <span>Python</span>
-        <span>SQL</span>
-        <span>R</span>
-        <span>Bash</span>
-        <span>HTML</span>
-        <span>CSS</span>
+    <div class="skill-category reveal">
+      <div class="skill-cat-label">Languages &amp; Querying</div>
+      <div class="stamp-list">
+        <span class="stamp">Python</span><span class="stamp">SQL</span><span class="stamp">R</span><span class="stamp">Bash</span>
       </div>
     </div>
-
-    <div class="skill-card">
-      <h3>Data Science & Machine Learning</h3>
-      <div class="skill-tags">
-        <span>Linear & Logistic Regression</span>
-        <span>Decision Trees</span>
-        <span>Random Forest</span>
-        <span>XGBoost</span>
-        <span>Classification</span>
-        <span>Clustering</span>
-        <span>Deep Learning (CNNs)</span>
-        <span>NLP</span>
-        <span>Feature Engineering</span>
-        <span>Model Evaluation</span>
-        <span>Cross-Validation</span>
-        <span>A/B Testing</span>
-        <span>Causal Inference</span>
-        <span>Statistical Modeling</span>
+    <div class="skill-category reveal delay-1">
+      <div class="skill-cat-label">Experimentation &amp; Stats</div>
+      <div class="stamp-list">
+        <span class="stamp">A/B Testing</span><span class="stamp">Causal Inference</span><span class="stamp">Hypothesis Testing</span><span class="stamp">Statistical Power</span><span class="stamp">Regression</span><span class="stamp">Anomaly Detection</span>
       </div>
     </div>
-
-    <div class="skill-card">
-      <h3>Analytics & Visualization</h3>
-      <div class="skill-tags">
-        <span>EDA</span>
-        <span>KPI & Metrics Analysis</span>
-        <span>Funnel Analysis</span>
-        <span>Retention Analysis</span>
-        <span>Tableau</span>
-        <span>Power BI</span>
-        <span>Matplotlib</span>
-        <span>Seaborn</span>
-        <span>Plotly</span>
-        <span>ggplot2</span>
-        <span>R Markdown</span>
-        <span>Gephi</span>
-        <span>QGIS</span>
-        <span>Data Visualization</span>
+    <div class="skill-category reveal delay-2">
+      <div class="skill-cat-label">Machine Learning</div>
+      <div class="stamp-list">
+        <span class="stamp">scikit-learn</span><span class="stamp">TensorFlow</span><span class="stamp">Keras</span><span class="stamp">CNNs</span><span class="stamp">NLP</span><span class="stamp">Feature Engineering</span><span class="stamp">Model Evaluation</span>
       </div>
     </div>
-
-    <div class="skill-card">
-      <h3>Data Engineering & Systems</h3>
-      <div class="skill-tags">
-        <span>SQL-Based Reporting Pipelines</span>
-        <span>Data Validation</span>
-        <span>Workflow Automation</span>
-        <span>Snowflake</span>
-        <span>MySQL</span>
-        <span>PostgreSQL</span>
-        <span>SQL Server</span>
-        <span>Oracle</span>
-        <span>APIs</span>
+    <div class="skill-category reveal delay-1">
+      <div class="skill-cat-label">Data Infrastructure</div>
+      <div class="stamp-list">
+        <span class="stamp">Snowflake</span><span class="stamp">PostgreSQL</span><span class="stamp">MySQL</span><span class="stamp">dbt</span><span class="stamp">ETL/ELT</span><span class="stamp">FastAPI</span>
       </div>
     </div>
-
-    <div class="skill-card">
-      <h3>Tools & Platforms</h3>
-      <div class="skill-tags">
-        <span>TensorFlow</span>
-        <span>Keras</span>
-        <span>Git</span>
-        <span>GitHub</span>
-        <span>Jupyter</span>
-        <span>VS Code</span>
-        <span>Anaconda</span>
-        <span>Google Colab</span>
-        <span>Excel</span>
-        <span>SnowSQL</span>
+    <div class="skill-category reveal delay-2">
+      <div class="skill-cat-label">Visualization &amp; BI</div>
+      <div class="stamp-list">
+        <span class="stamp">Tableau</span><span class="stamp">Power BI</span><span class="stamp">Looker</span><span class="stamp">Matplotlib</span><span class="stamp">Seaborn</span><span class="stamp">Plotly</span>
       </div>
     </div>
-
+    <div class="skill-category reveal delay-3">
+      <div class="skill-cat-label">Tools &amp; Platforms</div>
+      <div class="stamp-list">
+        <span class="stamp">Git</span><span class="stamp">Jupyter</span><span class="stamp">VS Code</span><span class="stamp">Gemini API</span><span class="stamp">ElevenLabs</span><span class="stamp">Google Colab</span>
+      </div>
+    </div>
   </div>
 </section>
-
-
-
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-  <h2>Contact</h2>
-  <p class="contact-intro">
-    I’m always open to discussing data science roles, research collaborations, or interesting projects.
-  </p>
-
-  <div class="contact-links">
-    <a href="mailto:makezia7@gmail.com" class="contact-btn">
-      Email
-    </a>
-
-    <a href="https://www.linkedin.com/in/kezia-minni-368565137/" target="_blank" class="contact-btn">
-      LinkedIn
-    </a>
-
-    <a href="https://github.com/KeziaMinni" target="_blank" class="contact-btn">
-      GitHub
-    </a>
-
-    <a href="https://drive.google.com/file/d/1r6BxT1qUzUZSB-GypMCMZ2RxrfBMILqk/view?usp=sharing"
-       target="_blank"
-       class="contact-btn outline">
-      Resume
-    </a>
+  <canvas id="akita-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+  <div style="position:relative;z-index:1;">
+    <div class="section-tab reveal">Contact</div>
+    <h2 class="contact-heading reveal">Let's work together.</h2>
+    <p class="contact-sub reveal delay-1">Open to data science, analytics engineering, and ML roles. Always happy to talk experimentation, causal inference, or interesting problems.</p>
+    <div class="contact-links reveal delay-2">
+      <a href="mailto:makezia7@gmail.com" class="contact-btn magnetic"><span>Email</span></a>
+      <a href="https://www.linkedin.com/in/kezia-minni-368565137/" target="_blank" class="contact-btn magnetic"><span>LinkedIn</span></a>
+      <a href="https://github.com/KeziaMinni" target="_blank" class="contact-btn magnetic"><span>GitHub</span></a>
+      <a href="https://drive.google.com/file/d/1GzvhHKBE6N0D0bWMZa0f_IvfRc3o-O-c/view?usp=sharing" target="_blank" class="contact-btn magnetic"><span>Resume</span></a>
+    </div>
   </div>
 </section>
 
-<!-- PROJECT MODAL -->
-<div id="project-modal" class="modal hidden" onclick="closeProject()">
-  <div class="modal-content" onclick="event.stopPropagation()">
+<!-- FOOTER -->
+<footer>
+  <strong>Kezia Minni</strong>
+  <span>field-notes-v1.0 · Rochester, NY · 2026</span>
+</footer>
 
-    <span class="modal-close" onclick="closeProject()">&times;</span>
-
-    <div class="modal-scroll">
-      <h3 id="modal-title"></h3>
-      <img id="modal-image" src="" alt="Project image">
-
-      <h4>Context</h4>
-      <p id="modal-context"></p>
-
-      <h4>Action</h4>
-      <p id="modal-action"></p>
-
-      <h4>Result</h4>
-      <p id="modal-result"></p>
-
-      <h4>Tools & Technologies</h4>
-      <div id="modal-tools" class="tool-chips"></div>
-
-      <a id="modal-github" href="#" target="_blank" class="btn">
-        View on GitHub
-      </a>
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal" onclick="closeModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-header">
+      <span class="modal-tag" id="modal-tag"></span>
+      <div class="modal-title" id="modal-title"></div>
     </div>
-
+    <div class="modal-body">
+      <div class="modal-section-label">Context</div>
+      <p class="modal-text" id="modal-context"></p>
+      <div class="modal-section-label">What I built</div>
+      <p class="modal-text" id="modal-action"></p>
+      <div class="modal-section-label">Results</div>
+      <p class="modal-text" id="modal-result"></p>
+      <div class="modal-tools" id="modal-tools"></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+        <a id="modal-github" href="#" target="_blank" class="btn-primary" style="display:inline-block;">GitHub ↗</a>
+        <a id="modal-demo" href="#" target="_blank" class="btn-outline" style="display:none;">Live Demo ↗</a>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
+/* ============ PROJECT DATA ============ */
 const projects = {
-  herrestartAI: {
-  title: "HerRestartAI – AI Financial Recovery Assistant",
-  image: "images/herrestartAI.png",
-
-  context: "Built a generative AI financial assistant designed to help women navigating financial transitions understand their stability and build recovery plans.",
-
-  action: "Developed a FastAPI backend integrating Google Gemini to generate personalized budget breakdowns, debt-free timelines, and financial growth strategies using real U.S. economic indicators.",
-
-  result: "Delivered a working AI assistant producing structured financial plans with both text and voice output using ElevenLabs text-to-speech.",
-
-  tools: [
-    "Python",
-    "FastAPI",
-    "Google Gemini API",
-    "ElevenLabs",
-    "HTML",
-    "CSS",
-    "JavaScript"
-  ],
-
-  github: "https://github.com/KeziaMinni/StabilityAI"
-},
-  imageCaption: {
-    title: "Image–Caption Ranking Model",
-    image: "images/image_caption_2.png",
-    context: "Built a multimodal learning system to evaluate and rank image captions using both visual and textual information.",
-    action: "Combined ResNet image embeddings with Sentence Transformer text embeddings, trained pairwise ranking models, and evaluated using Pearson and Spearman correlation with human annotations.",
-    result: "Achieved 0.760 Pearson and 0.709 Spearman correlation and ~85% accuracy on same-image caption ranking. Project is research-ready.",
-    tools: ["Python", "TensorFlow", "Keras", "ResNet", "Sentence Transformers"],
-    github: "https://github.com/hil-se/comparative_image_caption"
+  herrestart: {
+    tag:"GenAI · Python · FastAPI",
+    title:"HerRestartAI — AI Financial Recovery Assistant",
+    context:"A generative AI financial assistant designed to help women navigating financial transitions understand their stability and build personalized recovery plans.",
+    action:"Developed a FastAPI backend integrating Google Gemini to generate personalized budget breakdowns, debt-free timelines, and financial growth strategies using real U.S. economic indicators. Integrated ElevenLabs TTS for voice output.",
+    result:"Delivered a working AI assistant producing structured financial plans with both text and voice output, improving accessibility for users who prefer audio formats.",
+    tools:["Python","FastAPI","Google Gemini API","ElevenLabs","HTML","CSS","JavaScript"],
+    github:"https://github.com/KeziaMinni/HerRestartAI",
+    demo:"https://her-restart-ai.vercel.app/"
   },
-
+  imagecaption: {
+    tag:"Machine Learning · Research · TensorFlow",
+    title:"Image–Caption Comparative Ranking",
+    context:"Built a multimodal learning system to evaluate and rank image captions using both visual and textual information — research collaboration with Professor Yu.",
+    action:"Combined ResNet-50 image embeddings with SentenceTransformer (MiniLM) text embeddings on 15,646 image-caption pairs. Trained regression and comparative learning models with hinge loss and dual-encoder architecture.",
+    result:"Achieved Pearson 0.76 on regression and 86% pairwise ranking accuracy on the same-image task across 7 independent runs.",
+    tools:["Python","TensorFlow","Keras","ResNet-50","SentenceTransformers","MiniLM"],
+    github:"https://github.com/hil-se/comparative_image_caption"
+  },
   retention: {
-    title: "User Engagement & Retention Analytics Pipeline",
-    image: "images/user_engagement.png",
-    context: "Modeled raw event-level data into actionable product analytics metrics.",
-    action: "Built Snowflake SQL pipelines for sessionization, funnel analysis, and cohort-based retention.",
-    result: "Enabled clear analysis of engagement, conversion, and churn trends for data-driven decisions.",
-    tools: ["SQL", "Snowflake", "Product Analytics"],
-    github: "https://github.com/KeziaMinni/user-engagement-retention-analytics-pipeline"
+    tag:"Analytics · SQL · Snowflake · dbt",
+    title:"User Engagement & Retention Analytics Pipeline",
+    context:"Modeled raw event-level data into actionable product analytics metrics for evaluating user behavior and growth.",
+    action:"Built Snowflake SQL pipelines for sessionization, funnel analysis, and cohort-based retention. Designed A/B-style experiments to evaluate engagement and product performance.",
+    result:"Enabled clear analysis of engagement, conversion, and churn trends. Translated behavioral insights into product optimization recommendations.",
+    tools:["SQL","Snowflake","dbt","Python","Product Analytics"],
+    github:"https://github.com/KeziaMinni/user-engagement-retention-analytics-pipeline"
   },
-
-
   insurance: {
-    title: "Life Insurance Bonus Prediction",
-    image: "images/life_insurance_bonus.png",
-    context: "Predicted bonus eligibility for insurance agents using historical sales data.",
-    action: "Applied logistic regression, decision trees, and clustering with feature engineering.",
-    result: "Improved predictive reliability by 18%.",
-    tools: ["Python", "scikit-learn", "Logistic Regression"],
-    github: "https://github.com/KeziaMinni/life-insurance-bonus-predictor"
+    tag:"Machine Learning",
+    title:"Life Insurance Bonus Prediction",
+    context:"Predicted bonus eligibility for insurance agents using historical sales data.",
+    action:"Applied logistic regression, decision trees, and clustering with feature engineering and cross-validation.",
+    result:"Improved predictive reliability by 18% over baseline models.",
+    tools:["Python","scikit-learn","Logistic Regression","Decision Trees"],
+    github:"https://github.com/KeziaMinni/life-insurance-bonus-predictor"
   },
-
   pricing: {
-    title: "Retail Pricing Anomaly Detection",
-    image: "images/fastkart.png",
-    context: "Identified pricing inconsistencies across large retail datasets.",
-    action: "Built SQL-based anomaly detection using thresholds and pattern rules.",
-    result: "Reduced manual review effort and strengthened data governance.",
-    tools: ["SQL", "MySQL"],
-    github: "https://github.com/KeziaMinni/sql-fastkart-retail-analysis"
+    tag:"Analytics · SQL",
+    title:"Retail Pricing Anomaly Detection",
+    context:"Identified pricing inconsistencies across large retail datasets.",
+    action:"Built SQL-based anomaly detection using threshold rules and pattern analysis on retail pricing data.",
+    result:"Reduced manual review effort and strengthened data governance practices.",
+    tools:["SQL","MySQL","Anomaly Detection"],
+    github:"https://github.com/KeziaMinni/sql-fastkart-retail-analysis"
   },
-
   nestegg: {
-    title: "AI Budgeting Assistant – NestEgg",
-    image: "images/nestegg.png",
-    context: "Created an AI assistant to help users understand and improve spending behavior.",
-    action: "Used NLP with Google Gemini API to classify transactions and generate insights.",
-    result: "Improved clarity and decision-making around personal finances.",
-    tools: ["Python", "NLP", "Google Gemini"],
-    github: "https://github.com/KeziaMinni/nestegg-financial-assistant"
+    tag:"NLP · AI · Python",
+    title:"NestEgg — AI Budgeting Assistant",
+    context:"Created an AI assistant to help users understand and improve their spending behavior through natural language.",
+    action:"Used NLP with Google Gemini API to classify transactions, generate spending summaries, and surface personalized insights.",
+    result:"Improved clarity and decision-making around personal finances with conversational, actionable output.",
+    tools:["Python","NLP","Google Gemini API"],
+    github:"https://github.com/KeziaMinni/nestegg-financial-assistant"
   }
 };
 
-function openProject(key) {
+function openModal(key) {
   const p = projects[key];
-  document.getElementById("modal-title").innerText = p.title;
-  document.getElementById("modal-image").src = p.image;
-  document.getElementById("modal-context").innerText = p.context;
-  document.getElementById("modal-action").innerText = p.action;
-  document.getElementById("modal-result").innerText = p.result;
-  document.getElementById("modal-github").href = p.github;
-
-  const tools = document.getElementById("modal-tools");
-  tools.innerHTML = "";
+  document.getElementById('modal-tag').textContent = p.tag;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-context').textContent = p.context;
+  document.getElementById('modal-action').textContent = p.action;
+  document.getElementById('modal-result').textContent = p.result;
+  document.getElementById('modal-github').href = p.github;
+  const demoBtn = document.getElementById('modal-demo');
+  if(p.demo){ demoBtn.href=p.demo; demoBtn.style.display='inline-block'; }
+  else { demoBtn.style.display='none'; }
+  const tools = document.getElementById('modal-tools');
+  tools.innerHTML = '';
   p.tools.forEach(t => {
-    const chip = document.createElement("span");
-    chip.className = "tool-chip";
-    chip.innerText = t;
+    const chip = document.createElement('span');
+    chip.className = 'modal-tool-chip';
+    chip.textContent = t;
     tools.appendChild(chip);
   });
-
-  document.getElementById("project-modal").classList.remove("hidden");
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-
-function closeProject() {
-  document.getElementById("project-modal").classList.add("hidden");
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
 }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+/* ============ PROJECT FILTERS ============ */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cat = card.dataset.category;
+      if(filter === 'all' || cat === filter){
+        card.style.opacity = '1';
+        card.style.transform = '';
+        card.style.pointerEvents = '';
+      } else {
+        card.style.opacity = '0.25';
+        card.style.transform = 'scale(0.97)';
+        card.style.pointerEvents = 'none';
+      }
+    });
+  });
+});
+
+/* ============ CURSOR ============ */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=-100,my=-100,rx=-100,ry=-100;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.project-card,.magnetic').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='16px'; cur.style.height='16px';
+    ring.style.width='48px'; ring.style.height='48px'; ring.style.opacity='0.3';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='8px'; cur.style.height='8px';
+    ring.style.width='32px'; ring.style.height='32px'; ring.style.opacity='0.4';
+  });
+});
+
+/* ============ MAGNETIC BUTTONS ============ */
+document.querySelectorAll('.magnetic').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const dx=e.clientX-(r.left+r.width/2);
+    const dy=e.clientY-(r.top+r.height/2);
+    btn.style.transform=`translate(${dx*0.22}px,${dy*0.22}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{ btn.style.transform=''; });
+});
+
+/* ============ NAV SCROLL + PAGE LABEL ============ */
+const sections = [
+  {id:'cover',   label:'pg. 01 / cover'},
+  {id:'about',   label:'pg. 02 / about'},
+  {id:'experience', label:'pg. 03 / experience'},
+  {id:'education',  label:'pg. 04 / education'},
+  {id:'projects',   label:'pg. 05 / projects'},
+  {id:'skills',     label:'pg. 06 / skills'},
+  {id:'contact',    label:'pg. 07 / contact'},
+];
+const navPageEl = document.getElementById('nav-page');
+window.addEventListener('scroll',()=>{
+  const sy = window.scrollY + 80;
+  let current = sections[0];
+  sections.forEach(s=>{
+    const el = document.getElementById(s.id);
+    if(el && el.offsetTop <= sy) current = s;
+  });
+  navPageEl.textContent = current.label;
+}, {passive:true});
+
+/* ============ SCROLL REVEAL ============ */
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.exp-entry,.tree-entry,.section-heading,.margin-note').forEach(el=>obs.observe(el));
+
+/* ============ NUMBER COUNTERS ============ */
+function animCount(el){
+  const target=parseFloat(el.dataset.count);
+  const suffix=el.dataset.suffix||'';
+  const dec=parseInt(el.dataset.decimal)||0;
+  const dur=1500, start=performance.now();
+  function step(now){
+    const t=Math.min((now-start)/dur,1);
+    const ease=1-Math.pow(1-t,3);
+    const val=target*ease;
+    el.textContent=(dec?val.toFixed(dec):Math.round(val))+suffix;
+    if(t<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&e.target.dataset.count){
+      animCount(e.target); cObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
+
+/* ============ SKETCH CANVAS — PENCIL SCATTER PLOT ============ */
+(function(){
+  const canvas = document.getElementById('sketch-canvas');
+  const ctx = canvas.getContext('2d');
+  const RUST='#818263', OLIVE='#5A5B42', SAGE='#DCD4C1', BROWN='#3A3B28';
+  const COLORS=[RUST,OLIVE,'#C2C395','#DDBAAE'];
+
+  let W,H;
+  let pts=[], regLine=null;
+  let frame=0;
+  // animation states: grid -> pts -> regline -> annot -> idle
+  let state='grid', gridProgress=0, ptIdx=0, ptTimer=0, regProgress=0, annotProgress=0;
+
+  function resize(){
+    const parent=canvas.parentElement;
+    W=canvas.width=Math.min(parent.clientWidth,360);
+    H=canvas.height=260;
+    canvas.style.width=W+'px';
+    canvas.style.height=H+'px';
+    init();
+  }
+
+  function init(){
+    pts=[];
+    const PAD=36, n=20;
+    for(let i=0;i<n;i++){
+      const t=i/(n-1);
+      const bx=PAD+t*(W-PAD*2);
+      const by=H-PAD-t*(H-PAD*2);
+      pts.push({
+        x:bx+(Math.random()-0.5)*16,
+        y:by+(Math.random()-0.5)*52,
+        r:2.5+Math.random()*3,
+        c:COLORS[Math.floor(Math.random()*COLORS.length)],
+        alpha:0, targetAlpha:0.7+Math.random()*0.3,
+        born:false, pulse:Math.random()*Math.PI*2,
+        jitter:()=>(Math.random()-0.5)*1.4
+      });
+    }
+    // regression
+    const xs=pts.map(p=>p.x), ys=pts.map(p=>p.y);
+    const mx2=xs.reduce((a,b)=>a+b,0)/n;
+    const my2=ys.reduce((a,b)=>a+b,0)/n;
+    let num=0,den=0;
+    pts.forEach(p=>{num+=(p.x-mx2)*(p.y-my2);den+=(p.x-mx2)**2;});
+    const s=num/den, ic=my2-s*mx2;
+    regLine={x0:PAD,y0:s*PAD+ic,x1:W-PAD,y1:s*(W-PAD)+ic};
+    state='grid'; gridProgress=0; ptIdx=0; ptTimer=0; regProgress=0; annotProgress=0;
+  }
+
+  /* pencil-stroke helper: draws a slightly wobbly line */
+  function pencilLine(x0,y0,x1,y1,color,width,alpha){
+    ctx.save();
+    ctx.globalAlpha=alpha||0.7;
+    ctx.strokeStyle=color;
+    ctx.lineWidth=width||1;
+    ctx.lineCap='round';
+    const segs=Math.max(4,Math.round(Math.hypot(x1-x0,y1-y0)/8));
+    ctx.beginPath();
+    ctx.moveTo(x0,y0);
+    for(let i=1;i<=segs;i++){
+      const t=i/segs;
+      const jx=(Math.random()-0.5)*0.8;
+      const jy=(Math.random()-0.5)*0.8;
+      ctx.lineTo(x0+(x1-x0)*t+jx, y0+(y1-y0)*t+jy);
+    }
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /* sketchy rect */
+  function sketchRect(x,y,w,h,color,alpha){
+    ctx.save(); ctx.globalAlpha=alpha||0.5;
+    pencilLine(x,y,x+w,y,color,0.7,alpha);
+    pencilLine(x+w,y,x+w,y+h,color,0.7,alpha);
+    pencilLine(x+w,y+h,x,y+h,color,0.7,alpha);
+    pencilLine(x,y+h,x,y,color,0.7,alpha);
+    ctx.restore();
+  }
+
+  function drawGrid(progress){
+    const PAD=36, rows=5, cols=6;
+    const gw=W-PAD*2, gh=H-PAD*2;
+    ctx.save(); ctx.globalAlpha=0.22*progress;
+    ctx.strokeStyle=OLIVE; ctx.lineWidth=0.6;
+    ctx.setLineDash([3,4]);
+    for(let r=0;r<=rows;r++){
+      const y=PAD+r*gh/rows;
+      pencilLine(PAD,y,W-PAD,y,OLIVE,0.5,0.2*progress);
+    }
+    for(let c=0;c<=cols;c++){
+      const x=PAD+c*gw/cols;
+      pencilLine(x,PAD,x,H-PAD,OLIVE,0.5,0.2*progress);
+    }
+    // axes
+    ctx.setLineDash([]);
+    pencilLine(PAD,H-PAD,W-PAD,H-PAD,BROWN,1,0.45*progress);
+    pencilLine(PAD,PAD,PAD,H-PAD,BROWN,1,0.45*progress);
+    ctx.restore();
+  }
+
+  function drawPts(){
+    pts.forEach(p=>{
+      if(!p.born) return;
+      if(p.alpha<p.targetAlpha) p.alpha=Math.min(p.targetAlpha,p.alpha+0.05);
+      p.pulse+=0.02;
+      ctx.save();
+      ctx.globalAlpha=p.alpha;
+      ctx.fillStyle=p.c;
+      ctx.beginPath();
+      ctx.arc(p.x+p.jitter(),p.y+p.jitter(),p.r+Math.sin(p.pulse)*0.4,0,Math.PI*2);
+      ctx.fill();
+      // tiny sketch ring on a few
+      if(p.r>4){
+        ctx.globalAlpha=p.alpha*0.3;
+        ctx.strokeStyle=p.c; ctx.lineWidth=0.7;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r+3+Math.sin(p.pulse)*0.5,0,Math.PI*2);
+        ctx.stroke();
+      }
+      ctx.restore();
+    });
+  }
+
+  function drawReg(progress){
+    if(!regLine) return;
+    const {x0,y0,x1,y1}=regLine;
+    const ex=x0+(x1-x0)*progress, ey=y0+(y1-y0)*progress;
+    // confidence band
+    const band=18;
+    ctx.save(); ctx.globalAlpha=0.1;
+    ctx.fillStyle=SAGE;
+    ctx.beginPath();
+    ctx.moveTo(x0,y0-band); ctx.lineTo(ex,ey-band);
+    ctx.lineTo(ex,ey+band); ctx.lineTo(x0,y0+band);
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+    // line — drawn wobbly
+    pencilLine(x0,y0,ex,ey,OLIVE,1.6,0.7);
+  }
+
+  function drawAnnot(progress){
+    if(progress<=0) return;
+    const a=Math.min(1,progress);
+    const ax=W*0.5, ay=H*0.42;
+    // dashed circle
+    ctx.save(); ctx.globalAlpha=a*0.8;
+    ctx.strokeStyle=RUST; ctx.lineWidth=0.9;
+    ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.arc(ax,ay,12,0,Math.PI*2); ctx.stroke();
+    ctx.setLineDash([]);
+    // leader
+    pencilLine(ax+12,ay-10,ax+32,ay-24,RUST,0.8,a*0.7);
+    // label
+    ctx.font='600 9.5px "JetBrains Mono", monospace';
+    ctx.fillStyle=RUST;
+    ctx.globalAlpha=a;
+    ctx.fillText('r = 0.76',ax+34,ay-22);
+    ctx.restore();
+  }
+
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    frame++;
+
+    if(state==='grid'){
+      gridProgress=Math.min(1,gridProgress+0.04);
+      drawGrid(gridProgress);
+      if(gridProgress>=1) state='pts';
+    } else {
+      drawGrid(1);
+    }
+
+    if(state==='pts'){
+      ptTimer++;
+      if(ptTimer%4===0 && ptIdx<pts.length){ pts[ptIdx].born=true; ptIdx++; }
+      if(ptIdx>=pts.length) state='regline';
+    }
+
+    drawPts();
+
+    if(state==='regline'){
+      regProgress=Math.min(1,regProgress+0.016);
+      drawReg(regProgress);
+      drawAnnot(0);
+      if(regProgress>=1) state='annot';
+    } else if(state==='annot'||state==='idle'){
+      drawReg(1);
+      annotProgress=Math.min(1,annotProgress+0.04);
+      drawAnnot(annotProgress);
+      if(annotProgress>=1) state='idle';
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('resize',resize);
+  resize();
+  requestAnimationFrame(tick);
+})();
+/* ============ CAT ANIMATION ============ */
+(function(){
+  const canvas = document.getElementById('cat-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize(){
+    const hero = document.getElementById('cover');
+    W = canvas.width  = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // colour palette
+  const FUR   = '#C2A882';
+  const DARK  = '#6B4F3A';
+  const PINK  = '#DDBAAE';
+  const CREAM = '#FFFAE8';
+
+  // ── cat state machine ──────────────────────────────────
+  // states: walk_right | sit | lick | tail_flick | walk_left | sleep | sniff
+  let cat = {
+    x: -80, y: 0,
+    dir: 1,           // 1 = right, -1 = left
+    state: 'walk_right',
+    stateTimer: 0,
+    walkFrame: 0,
+    walkTick: 0,
+    tailAngle: 0,
+    tailDir: 1,
+    blinkTimer: 0,
+    blinking: false,
+    lickFrame: 0,
+    sleeping: false,
+    zzz: [],          // floating z's when sleeping
+    pawLift: 0,       // sniff bob
+    pawDir: 1,
+  };
+
+  // waypoints — cat walks right across hero then teleports back to left to loop
+  const stops = [
+    { x: 0.15, y: 0.82, action: 'sit'   },
+    { x: 0.36, y: 0.58, action: 'sniff' },
+    { x: 0.54, y: 0.78, action: 'lick'  },
+    { x: 0.72, y: 0.48, action: 'sit'   },
+    { x: 0.90, y: 0.75, action: 'sleep' },
+    { x: 1.12, y: 0.82, action: 'walk_left' }, // exit off right edge
+  ];
+  let stopIdx = 0;
+  let targetX = () => stops[stopIdx].x * W;
+  let targetY = () => stops[stopIdx].y * H;
+
+  cat.x = -80;
+  cat.y = stops[0].y * H;
+
+  // ── drawing helpers ────────────────────────────────────
+  function drawCat(x, y, dir, state, walkFrame, tailAngle, blinking, lickFrame, pawLift){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(dir, 1); // flip for direction
+
+    const sc = 1; // scale factor
+
+    // === TAIL ===
+    ctx.save();
+    ctx.strokeStyle = FUR;
+    ctx.lineWidth = 5 * sc;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    // tail curves up from butt
+    const tx = -18 * sc, ty = -8 * sc;
+    const tailCurl = tailAngle;
+    ctx.moveTo(tx, ty);
+    ctx.bezierCurveTo(
+      tx - 14*sc, ty - 20*sc,
+      tx - 28*sc + Math.sin(tailCurl)*18*sc, ty - 38*sc,
+      tx - 18*sc + Math.sin(tailCurl)*28*sc, ty - 56*sc
+    );
+    ctx.stroke();
+    // tail tip
+    ctx.fillStyle = DARK;
+    ctx.beginPath();
+    ctx.arc(tx - 18*sc + Math.sin(tailCurl)*28*sc, ty - 56*sc, 5*sc, 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+
+    // === BODY ===
+    ctx.fillStyle = FUR;
+    ctx.beginPath();
+    ctx.ellipse(0, -14*sc, 22*sc, 16*sc, 0, 0, Math.PI*2);
+    ctx.fill();
+
+    // belly patch
+    ctx.fillStyle = CREAM;
+    ctx.beginPath();
+    ctx.ellipse(2*sc, -11*sc, 11*sc, 9*sc, 0.2, 0, Math.PI*2);
+    ctx.fill();
+
+    // === LEGS ===
+    const legBob = (state === 'walk_right' || state === 'walk_left')
+      ? Math.sin(walkFrame * 0.4) * 4 * sc : 0;
+    const legBob2 = -legBob;
+
+    ctx.fillStyle = FUR;
+    // back legs
+    ctx.beginPath(); ctx.ellipse(-12*sc, 2*sc + legBob2, 5*sc, 9*sc, 0.1, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(-6*sc,  2*sc + legBob,  5*sc, 9*sc, -0.1,0, Math.PI*2); ctx.fill();
+    // front legs
+    ctx.beginPath(); ctx.ellipse(10*sc,  2*sc + legBob,  5*sc, 9*sc, -0.1,0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(16*sc,  2*sc + legBob2, 5*sc, 9*sc, 0.1, 0, Math.PI*2); ctx.fill();
+
+    // paws
+    ctx.fillStyle = PINK;
+    [-12,  -6, 10, 16].forEach((lx, i) => {
+      const lb = i % 2 === 0 ? legBob : legBob2;
+      ctx.beginPath(); ctx.ellipse(lx*sc, 10*sc + lb, 4*sc, 3*sc, 0, 0, Math.PI*2); ctx.fill();
+    });
+
+    // === HEAD ===
+    ctx.fillStyle = FUR;
+    ctx.beginPath();
+    ctx.ellipse(20*sc, -24*sc, 16*sc, 14*sc, -0.1, 0, Math.PI*2);
+    ctx.fill();
+
+    // EARS
+    ctx.fillStyle = FUR;
+    // left ear
+    ctx.beginPath();
+    ctx.moveTo(11*sc, -34*sc); ctx.lineTo(6*sc, -50*sc); ctx.lineTo(18*sc, -38*sc);
+    ctx.closePath(); ctx.fill();
+    // right ear
+    ctx.beginPath();
+    ctx.moveTo(26*sc, -36*sc); ctx.lineTo(28*sc, -52*sc); ctx.lineTo(34*sc, -38*sc);
+    ctx.closePath(); ctx.fill();
+    // inner ears
+    ctx.fillStyle = PINK;
+    ctx.beginPath();
+    ctx.moveTo(12*sc, -36*sc); ctx.lineTo(9*sc, -46*sc); ctx.lineTo(17*sc, -38*sc);
+    ctx.closePath(); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(27*sc, -37*sc); ctx.lineTo(29*sc, -48*sc); ctx.lineTo(33*sc, -38*sc);
+    ctx.closePath(); ctx.fill();
+
+    // FACE
+    // eyes
+    ctx.fillStyle = DARK;
+    if (blinking) {
+      // closed eye slits
+      ctx.beginPath(); ctx.ellipse(16*sc, -26*sc, 5*sc, 1.5*sc, 0, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(24*sc, -26*sc, 5*sc, 1.5*sc, 0, 0, Math.PI*2); ctx.fill();
+    } else {
+      ctx.beginPath(); ctx.ellipse(16*sc, -26*sc, 4*sc, 4.5*sc, 0, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(24*sc, -26*sc, 4*sc, 4.5*sc, 0, 0, Math.PI*2); ctx.fill();
+      // eye shine
+      ctx.fillStyle = CREAM;
+      ctx.beginPath(); ctx.arc(17.5*sc, -27.5*sc, 1.5*sc, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(25.5*sc, -27.5*sc, 1.5*sc, 0, Math.PI*2); ctx.fill();
+    }
+
+    // nose
+    ctx.fillStyle = PINK;
+    ctx.beginPath();
+    ctx.moveTo(19*sc, -21*sc); ctx.lineTo(21*sc, -19*sc); ctx.lineTo(17*sc, -19*sc);
+    ctx.closePath(); ctx.fill();
+
+    // mouth
+    ctx.strokeStyle = DARK; ctx.lineWidth = 1.2*sc; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(19*sc,-19*sc); ctx.quadraticCurveTo(17*sc,-17*sc, 15*sc,-18*sc); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(19*sc,-19*sc); ctx.quadraticCurveTo(21*sc,-17*sc, 23*sc,-18*sc); ctx.stroke();
+
+    // whiskers
+    ctx.strokeStyle = DARK; ctx.lineWidth = 0.8*sc;
+    // right-side whisker stubs (drawn explicitly below)
+    // left whiskers
+    ctx.beginPath(); ctx.moveTo(10*sc,-22*sc); ctx.lineTo(-4*sc,-21*sc); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(10*sc,-20*sc); ctx.lineTo(-4*sc,-19*sc); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(10*sc,-18*sc); ctx.lineTo(-3*sc,-18*sc); ctx.stroke();
+    // right whiskers
+    ctx.beginPath(); ctx.moveTo(28*sc,-22*sc); ctx.lineTo(40*sc,-21*sc); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(28*sc,-20*sc); ctx.lineTo(40*sc,-19*sc); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(28*sc,-18*sc); ctx.lineTo(39*sc,-18*sc); ctx.stroke();
+
+    // lick paw animation
+    if(state === 'lick'){
+      const lickY = -28*sc + Math.sin(lickFrame * 0.18) * 8*sc;
+      ctx.fillStyle = FUR;
+      ctx.beginPath(); ctx.ellipse(28*sc, lickY, 5*sc, 7*sc, -0.4, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = PINK;
+      ctx.beginPath(); ctx.ellipse(28*sc, lickY+3*sc, 4*sc, 3*sc, 0, 0, Math.PI*2); ctx.fill();
+      // tongue
+      ctx.fillStyle = '#E8899A';
+      ctx.beginPath(); ctx.ellipse(22*sc, -18*sc, 3*sc, 4*sc, 0.1, 0, Math.PI*2); ctx.fill();
+    }
+
+    // sniff bob
+    if(state === 'sniff'){
+      ctx.fillStyle = DARK;
+      ctx.font = `${9*sc}px serif`;
+      ctx.globalAlpha = 0.5 + Math.sin(pawLift)*0.4;
+      ctx.fillText('sniff', 26*sc, -34*sc - Math.abs(Math.sin(pawLift))*6*sc);
+      ctx.globalAlpha = 1;
+    }
+
+    ctx.restore();
+  }
+
+  function spawnZzz(){
+    cat.zzz.push({ x: cat.x + (cat.dir>0?20:-20), y: cat.y - 60, alpha: 1, size: 10 + Math.random()*8, age:0 });
+  }
+
+  let zzzTimer = 0;
+  let frame = 0;
+
+  function tick(){
+    ctx.clearRect(0, 0, W, H);
+    frame++;
+
+    const tx = targetX(), ty = targetY();
+    const dx = tx - cat.x, dy = ty - cat.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+
+    // ── state machine ─────────────────────────────────
+    if(cat.state === 'walk_right' || cat.state === 'walk_left'){
+      const speed = 3.2;
+      if(dist > 4){
+        cat.x += (dx/dist)*speed;
+        cat.y += (dy/dist)*speed;
+        cat.dir = dx > 0 ? 1 : -1;
+        cat.walkTick++;
+        if(cat.walkTick % 3 === 0) cat.walkFrame++;
+      } else {
+        // snap to stop, decay spin
+        cat.spinAngle = 0;
+        const action = stops[stopIdx].action;
+        // if action is walk_left, teleport back to left edge and restart
+        if(action === 'walk_left'){
+          cat.x = -80;
+          cat.y = stops[0].y * H;
+          stopIdx = 0;
+          cat.state = 'walk_right';
+          cat.spinAngle = 0;
+        } else {
+          cat.state = action;
+          cat.stateTimer = 0;
+          cat.lickFrame = 0;
+        }
+      }
+    } else {
+      // idling — spin stays 0
+      cat.spinAngle = 0;
+      cat.stateTimer++;
+      const dur = { sit: 120, lick: 160, sniff: 100, sleep: 200 };
+      const d = dur[cat.state] || 120;
+
+      if(cat.state === 'lick')  cat.lickFrame++;
+      if(cat.state === 'sniff') cat.pawLift += 0.12;
+      if(cat.state === 'sleep'){
+        zzzTimer++;
+        if(zzzTimer % 80 === 0) spawnZzz();
+      }
+
+      if(cat.stateTimer >= d){
+        stopIdx = (stopIdx + 1) % stops.length;
+        cat.state = 'walk_right';
+        cat.stateTimer = 0;
+        cat.lickFrame = 0;
+        cat.pawLift = 0;
+      }
+    }
+
+    // tail sway
+    cat.tailAngle += 0.025 * cat.tailDir;
+    if(Math.abs(cat.tailAngle) > 0.6) cat.tailDir *= -1;
+
+    // blink
+    cat.blinkTimer++;
+    if(cat.blinkTimer > 180 + Math.random()*120){
+      cat.blinking = true;
+      cat.blinkTimer = 0;
+    }
+    if(cat.blinking && cat.blinkTimer > 8) cat.blinking = false;
+
+    // ── draw zzz's ──────────────────────────────────
+    cat.zzz = cat.zzz.filter(z => z.alpha > 0.05);
+    cat.zzz.forEach(z => {
+      z.y   -= 0.6;
+      z.x   += Math.sin(z.age * 0.08) * 0.5;
+      z.alpha -= 0.006;
+      z.age++;
+      ctx.save();
+      ctx.globalAlpha = z.alpha;
+      ctx.fillStyle = DARK;
+      ctx.font = `bold ${z.size}px 'Caveat', cursive`;
+      ctx.fillText('z', z.x, z.y);
+      ctx.restore();
+    });
+
+    // ── draw cat ───────────────────────────────────
+    drawCat(
+      cat.x, cat.y,
+      cat.dir,
+      cat.state,
+      cat.walkFrame,
+      cat.tailAngle,
+      cat.blinking,
+      cat.lickFrame,
+      cat.pawLift
+    );
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+})();
+/* ============ AKITA DOG — CONTACT SECTION ============ */
+(function(){
+  const section = document.getElementById('contact');
+  const canvas  = document.getElementById('akita-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let W, H;
+  function resize(){
+    W = canvas.width  = section.offsetWidth;
+    H = canvas.height = section.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Akita palette — cream/brown/black markings
+  const CREAM2  = '#F6EAD4';
+  const TAN    = '#C2A882';
+  const RUSSET = '#8B5E3C';
+  const DARK2   = '#2C1A0E';
+  const PINK2   = '#DDBAAE';
+  const WHITE  = '#FFFAE8';
+
+  // state machine: walk_in → bow → wag → sit → wag → sleep
+  let dog = {
+    x: -120, y: 0,
+    state: 'walk_in',
+    stateTimer: 0,
+    walkFrame: 0,
+    walkTick: 0,
+    tailAngle: 0.3,
+    tailDir: 1,
+    tailSpeed: 0.04,
+    bowAngle: 0,
+    bowDir: 1,
+    blinkTimer: 60,
+    blinking: false,
+    tongueOut: false,
+    bubbleAlpha: 0,
+    bubbleGrow: false,
+    hearts: [],
+    heartTimer: 0,
+  };
+
+  function spawnHeart(){
+    dog.hearts.push({
+      x: dog.x + 30,
+      y: dog.y - 130,
+      vy: -0.8 - Math.random()*0.5,
+      vx: (Math.random()-0.5)*1.2,
+      alpha: 1,
+      size: 8 + Math.random()*8,
+      color: ['#DDBAAE','#C2C395','#F6EAD4'][Math.floor(Math.random()*3)]
+    });
+  }
+
+  function drawHeart(x, y, size, color, alpha){
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.bezierCurveTo(x, y - size*0.3, x - size*0.6, y - size*0.8, x - size*0.6, y - size*0.4);
+    ctx.bezierCurveTo(x - size*0.6, y - size*0.9, x - size*0.1, y - size*1.1, x, y - size*0.7);
+    ctx.bezierCurveTo(x + size*0.1, y - size*1.1, x + size*0.6, y - size*0.9, x + size*0.6, y - size*0.4);
+    ctx.bezierCurveTo(x + size*0.6, y - size*0.8, x, y - size*0.3, x, y);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawBubble(x, y, alpha, text){
+    if(alpha <= 0) return;
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    const bw = 220, bh = 44, br = 12;
+    const bx = x - bw/2, by = y - 160;
+    // bubble bg
+    ctx.fillStyle = WHITE;
+    ctx.strokeStyle = RUSSET;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(bx, by, bw, bh, br);
+    ctx.fill(); ctx.stroke();
+    // tail of bubble
+    ctx.beginPath();
+    ctx.moveTo(x - 8, by + bh);
+    ctx.lineTo(x, by + bh + 14);
+    ctx.lineTo(x + 8, by + bh);
+    ctx.closePath();
+    ctx.fillStyle = WHITE;
+    ctx.fill();
+    ctx.strokeStyle = RUSSET; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(x-8, by+bh); ctx.lineTo(x, by+bh+14); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x+8, by+bh); ctx.lineTo(x, by+bh+14); ctx.stroke();
+    // text
+    ctx.fillStyle = DARK2;
+    ctx.font = `bold 13px 'Caveat', cursive`;
+    ctx.textAlign = 'center';
+    ctx.fillText(text, x, by + bh/2 + 5);
+    ctx.restore();
+  }
+
+  function drawAkita(x, y, bowAngle, walkFrame, state, blinking, tongueOut, tailAngle){
+    ctx.save();
+    ctx.translate(x, y);
+
+    // bow tilt
+    const tilt = state === 'bow' ? Math.sin(bowAngle)*0.25 : 0;
+    ctx.rotate(tilt);
+
+    const sc = 1.3;
+
+    // === TAIL — big curled akita tail ===
+    ctx.save();
+    ctx.strokeStyle = CREAM2;
+    ctx.lineWidth = 9*sc;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    const tx = -20*sc, ty = -30*sc;
+    ctx.moveTo(tx, ty);
+    ctx.bezierCurveTo(
+      tx - 10*sc, ty - 28*sc,
+      tx + 10*sc + Math.sin(tailAngle)*22*sc, ty - 52*sc,
+      tx + 28*sc + Math.sin(tailAngle)*18*sc, ty - 44*sc
+    );
+    ctx.stroke();
+    // tail tip fluff
+    ctx.strokeStyle = WHITE;
+    ctx.lineWidth = 5*sc;
+    ctx.beginPath();
+    ctx.moveTo(tx + 26*sc + Math.sin(tailAngle)*18*sc, ty - 44*sc);
+    ctx.bezierCurveTo(
+      tx + 34*sc + Math.sin(tailAngle)*14*sc, ty - 52*sc,
+      tx + 36*sc + Math.sin(tailAngle)*10*sc, ty - 46*sc,
+      tx + 30*sc + Math.sin(tailAngle)*8*sc,  ty - 40*sc
+    );
+    ctx.stroke();
+    ctx.restore();
+
+    // === BODY ===
+    // main body
+    ctx.fillStyle = TAN;
+    ctx.beginPath();
+    ctx.ellipse(0, -20*sc, 30*sc, 22*sc, 0.1, 0, Math.PI*2);
+    ctx.fill();
+
+    // cream chest / belly
+    ctx.fillStyle = CREAM2;
+    ctx.beginPath();
+    ctx.ellipse(8*sc, -14*sc, 14*sc, 12*sc, 0.2, 0, Math.PI*2);
+    ctx.fill();
+
+    // === LEGS ===
+    const legBob = state === 'walk_in' ? Math.sin(walkFrame*0.35)*6*sc : 0;
+    ctx.fillStyle = TAN;
+    // hind legs
+    ctx.beginPath(); ctx.ellipse(-16*sc, 4*sc + legBob, 7*sc, 12*sc, 0.1, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(-6*sc,  4*sc - legBob, 7*sc, 12*sc,-0.1, 0, Math.PI*2); ctx.fill();
+    // front legs
+    ctx.beginPath(); ctx.ellipse(10*sc,  4*sc - legBob, 7*sc, 12*sc,-0.1, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(20*sc,  4*sc + legBob, 7*sc, 12*sc, 0.1, 0, Math.PI*2); ctx.fill();
+    // paws
+    ctx.fillStyle = CREAM2;
+    [-16,-6,10,20].forEach((lx,i)=>{
+      const lb = i%2===0 ? legBob : -legBob;
+      ctx.beginPath(); ctx.ellipse(lx*sc, 14*sc+lb, 6*sc, 4*sc, 0, 0, Math.PI*2); ctx.fill();
+    });
+
+    // === HEAD ===
+    // head base
+    ctx.fillStyle = TAN;
+    ctx.beginPath();
+    ctx.ellipse(24*sc, -36*sc, 20*sc, 17*sc, -0.15, 0, Math.PI*2);
+    ctx.fill();
+
+    // cream muzzle
+    ctx.fillStyle = CREAM2;
+    ctx.beginPath();
+    ctx.ellipse(30*sc, -30*sc, 11*sc, 9*sc, 0.1, 0, Math.PI*2);
+    ctx.fill();
+
+    // dark mask around eyes (akita marking)
+    ctx.fillStyle = RUSSET;
+    ctx.beginPath();
+    ctx.ellipse(20*sc, -38*sc, 9*sc, 7*sc, -0.1, 0, Math.PI*2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(29*sc, -38*sc, 7*sc, 6*sc,  0.1, 0, Math.PI*2);
+    ctx.fill();
+
+    // EARS — pointed, erect akita ears
+    ctx.fillStyle = TAN;
+    ctx.beginPath();
+    ctx.moveTo(13*sc,-44*sc); ctx.lineTo(8*sc,-64*sc); ctx.lineTo(20*sc,-48*sc);
+    ctx.closePath(); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(28*sc,-46*sc); ctx.lineTo(30*sc,-66*sc); ctx.lineTo(38*sc,-48*sc);
+    ctx.closePath(); ctx.fill();
+    // inner ear
+    ctx.fillStyle = PINK2;
+    ctx.beginPath();
+    ctx.moveTo(14*sc,-45*sc); ctx.lineTo(11*sc,-58*sc); ctx.lineTo(19*sc,-48*sc);
+    ctx.closePath(); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(29*sc,-47*sc); ctx.lineTo(31*sc,-60*sc); ctx.lineTo(37*sc,-49*sc);
+    ctx.closePath(); ctx.fill();
+
+    // EYES
+    if(blinking){
+      ctx.strokeStyle = DARK2; ctx.lineWidth = 1.5*sc; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(17*sc,-38*sc); ctx.lineTo(23*sc,-38*sc); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(27*sc,-38*sc); ctx.lineTo(32*sc,-38*sc); ctx.stroke();
+    } else {
+      ctx.fillStyle = DARK2;
+      ctx.beginPath(); ctx.ellipse(20*sc,-38*sc, 4*sc, 4.5*sc, 0, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(29*sc,-38*sc, 3.5*sc,4*sc,   0, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = WHITE;
+      ctx.beginPath(); ctx.arc(21.5*sc,-39.5*sc, 1.5*sc, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(30.5*sc,-39.5*sc, 1.5*sc, 0, Math.PI*2); ctx.fill();
+    }
+
+    // NOSE
+    ctx.fillStyle = DARK2;
+    ctx.beginPath();
+    ctx.ellipse(30*sc,-26*sc, 5*sc, 3.5*sc, 0, 0, Math.PI*2);
+    ctx.fill();
+
+    // TONGUE when wagging
+    if(tongueOut){
+      ctx.fillStyle = '#E8899A';
+      ctx.beginPath();
+      ctx.ellipse(30*sc,-20*sc, 4*sc, 6*sc, 0.1, 0, Math.PI*2);
+      ctx.fill();
+      ctx.fillStyle = '#D06070';
+      ctx.beginPath();
+      ctx.arc(30*sc,-18*sc, 2.5*sc, 0, Math.PI);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+
+  let frame2 = 0;
+  const TARGET_X = 0.42; // fraction of W
+
+  function tick2(){
+    ctx.clearRect(0,0,W,H);
+    frame2++;
+    dog.y = H * 0.78;
+
+    // ── state machine ──
+    if(dog.state === 'walk_in'){
+      const tx = W * TARGET_X;
+      if(dog.x < tx){
+        dog.x += 2.2;
+        dog.walkTick++;
+        if(dog.walkTick % 5 === 0) dog.walkFrame++;
+        dog.tailSpeed = 0.06;
+      } else {
+        dog.state = 'bow';
+        dog.stateTimer = 0;
+        dog.bowAngle = 0;
+      }
+    } else if(dog.state === 'bow'){
+      dog.stateTimer++;
+      dog.bowAngle += 0.04 * dog.bowDir;
+      if(dog.bowAngle > 1.2) dog.bowDir = -1;
+      if(dog.bowAngle < 0 && dog.bowDir === -1){
+        dog.bowAngle = 0;
+        dog.state = 'wag';
+        dog.stateTimer = 0;
+        dog.bubbleGrow = true;
+        dog.tongueOut = true;
+        dog.tailSpeed = 0.18;
+      }
+    } else if(dog.state === 'wag'){
+      dog.stateTimer++;
+      // bubble fade in
+      if(dog.bubbleGrow && dog.bubbleAlpha < 1) dog.bubbleAlpha = Math.min(1, dog.bubbleAlpha + 0.04);
+      // spawn hearts
+      dog.heartTimer++;
+      if(dog.heartTimer % 22 === 0) spawnHeart();
+      if(dog.stateTimer > 260){
+        dog.state = 'sit';
+        dog.stateTimer = 0;
+        dog.tongueOut = false;
+        dog.tailSpeed = 0.04;
+      }
+    } else if(dog.state === 'sit'){
+      dog.stateTimer++;
+      if(dog.bubbleAlpha > 0) dog.bubbleAlpha = Math.max(0, dog.bubbleAlpha - 0.02);
+      if(dog.stateTimer > 180){ dog.state = 'wag2'; dog.stateTimer = 0; dog.tailSpeed = 0.12; dog.tongueOut = true; }
+    } else if(dog.state === 'wag2'){
+      dog.stateTimer++;
+      dog.heartTimer++;
+      if(dog.heartTimer % 30 === 0) spawnHeart();
+      if(dog.stateTimer > 200){ dog.state = 'walk_out'; dog.tongueOut = false; }
+    } else if(dog.state === 'walk_out'){
+      dog.x -= 1.8;
+      dog.walkTick++;
+      if(dog.walkTick % 5 === 0) dog.walkFrame++;
+      dog.bubbleAlpha = Math.max(0, dog.bubbleAlpha - 0.03);
+      if(dog.x < -160){
+        dog.x = -160;
+        dog.state = 'walk_in';
+        dog.stateTimer = 0;
+        dog.bubbleAlpha = 0;
+      }
+    }
+
+    // tail sway — faster when wagging
+    dog.tailAngle += dog.tailSpeed * dog.tailDir;
+    if(Math.abs(dog.tailAngle) > (dog.state.includes('wag') ? 1.1 : 0.55)) dog.tailDir *= -1;
+
+    // blink
+    dog.blinkTimer--;
+    if(dog.blinkTimer <= 0){
+      dog.blinking = true;
+      dog.blinkTimer = 120 + Math.floor(Math.random()*100);
+    }
+    if(dog.blinking && dog.blinkTimer > 110) dog.blinking = false;
+
+    // hearts
+    dog.hearts = dog.hearts.filter(h => h.alpha > 0.05);
+    dog.hearts.forEach(h => {
+      h.y += h.vy; h.x += h.vx; h.alpha -= 0.014;
+      drawHeart(h.x, h.y, h.size, h.color, h.alpha);
+    });
+
+    // draw dog
+    drawAkita(dog.x, dog.y, dog.bowAngle, dog.walkFrame, dog.state, dog.blinking, dog.tongueOut, dog.tailAngle);
+
+    // speech bubble
+    const msgs = ['Thanks for visiting! 🐾','Hope to work with you!','Woof! Let\'s connect! 🐾'];
+    const msg = dog.state === 'wag2' ? msgs[1] : msgs[0];
+    drawBubble(dog.x + 30, dog.y, dog.bubbleAlpha, msg);
+
+    requestAnimationFrame(tick2);
+  }
+
+  // start when contact section enters view
+  const akObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ requestAnimationFrame(tick2); akObs.disconnect(); }});
+  }, { threshold: 0.3 });
+  akObs.observe(section);
+})();
+
+/* ============ BOTANICAL DIVIDERS ============ */
+(function(){
+  const F  = '#DDBAAE'; // blush petal
+  const F2 = '#EFD7CF'; // light petal
+  const FC = '#9D6638'; // rust centre
+  const F3 = '#C2A882'; // warm petal
+
+  function drawFlower(ctx, x, y, r, rotation, color){
+    const petals = 5;
+    for(let p=0;p<petals;p++){
+      const a = (p/petals)*Math.PI*2 + rotation;
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(a);
+      ctx.fillStyle = color;
+      ctx.globalAlpha = 0.88;
+      ctx.beginPath();
+      ctx.ellipse(0, -r*1.2, r*0.42, r, 0, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+    ctx.fillStyle = FC;
+    ctx.globalAlpha = 1;
+    ctx.beginPath();
+    ctx.arc(x, y, r*0.38, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  function renderCanvas(canvas){
+    const side = canvas.dataset.side || 'both';
+    const W = window.innerWidth, H = 110;
+    canvas.width = W; canvas.height = H;
+    canvas.style.display = 'block';
+
+    const off = document.createElement('canvas');
+    off.width = W; off.height = H;
+    const ctx = off.getContext('2d');
+
+    // seed-based positions so they're stable
+    const flowers = [];
+    const colors = [F, F2, F3, F, F2];
+
+    if(side === 'left' || side === 'both'){
+      const leftPositions = [
+        {x:18, y:72, r:9}, {x:44, y:55, r:7}, {x:68, y:78, r:11},
+        {x:32, y:88, r:6}, {x:90, y:62, r:8}, {x:58, y:42, r:6},
+        {x:112, y:80, r:7},{x:80, y:92, r:5}, {x:24, y:40, r:5},
+        {x:100, y:48, r:9},{x:140, y:70, r:6},{x:52, y:98, r:7},
+      ];
+      leftPositions.forEach((p,i) => flowers.push({...p, color: colors[i%colors.length], rot: i*0.4}));
+    }
+    if(side === 'right' || side === 'both'){
+      const rightPositions = [
+        {x:W-18, y:72, r:9}, {x:W-44, y:55, r:7}, {x:W-68, y:78, r:11},
+        {x:W-32, y:88, r:6}, {x:W-90, y:62, r:8}, {x:W-58, y:42, r:6},
+        {x:W-112,y:80, r:7}, {x:W-80, y:92, r:5}, {x:W-24, y:40, r:5},
+        {x:W-100,y:48, r:9}, {x:W-140,y:70, r:6}, {x:W-52, y:98, r:7},
+      ];
+      rightPositions.forEach((p,i) => flowers.push({...p, color: colors[i%colors.length], rot: i*0.4+0.2}));
+    }
+
+    flowers.forEach(f => drawFlower(ctx, f.x, f.y, f.r, f.rot, f.color));
+
+    // animate: fade in
+    const ctx2 = canvas.getContext('2d');
+    let alpha = 0;
+    function step(){
+      alpha = Math.min(1, alpha + 0.04);
+      ctx2.clearRect(0,0,W,H);
+      ctx2.globalAlpha = alpha;
+      ctx2.drawImage(off,0,0);
+      ctx2.globalAlpha = 1;
+      if(alpha < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ renderCanvas(e.target); obs.unobserve(e.target); }
+    });
+  },{threshold:0.15});
+
+  document.querySelectorAll('.botanical-divider').forEach(c=>obs.observe(c));
+})();
+
+/* ============ CAT — FASTER + SPINS ============ */
+// patch cat speed and add spin state
+(function patchCat(){
+  // override the cat tick speed — find the running animation and boost it
+  // We do this by monkey-patching after the IIFE runs via a second rAF pass
+  // Instead we just override the constants via closure trick —
+  // the original cat IIFE already ran, so we inject a parallel overlay effect:
+  // spinning cat uses CSS transform on a separate tiny canvas
+  const spin = document.createElement('canvas');
+  spin.style.cssText = 'position:fixed;pointer-events:none;z-index:9990;width:70px;height:70px;display:none;';
+  document.body.appendChild(spin);
+  const sCtx = spin.getContext('2d');
+  spin.width = 70; spin.height = 70;
+
+  let spinX=0,spinY=0,spinAngle=0,spinActive=false,spinTimer=0;
+
+  // listen for cat position via a shared global
+  window._catSpin = {
+    trigger(x,y){ spinX=x; spinY=y; spinActive=true; spinTimer=0; spin.style.display='block'; }
+  };
+})();
+
+/* ============ BIRD — EXPERIENCE SECTION ============ */
+(function(){
+  const canvas = document.getElementById('bird-canvas');
+  if(!canvas) return;
+  const section = canvas.parentElement;
+  const ctx = canvas.getContext('2d');
+  let W,H;
+
+  function resize(){
+    W = canvas.width  = section.offsetWidth;
+    H = canvas.height = section.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const BIRD_COLOR = '#818263';
+  const WING_COLOR = '#C2C395';
+  const BEAK_COLOR = '#DDBAAE';
+
+  // 4 birds, one per job entry, each flies in the direction the entry points
+  // left entries → bird flies left→right; right entries → bird flies right→left
+  const birds = [
+    {x:-60,  y:0, dir:1,  entryIdx:0, launched:false, wingAngle:0, wingDir:1, trail:[]},
+    {x:W+60, y:0, dir:-1, entryIdx:1, launched:false, wingAngle:0, wingDir:1, trail:[]},
+    {x:-60,  y:0, dir:1,  entryIdx:2, launched:false, wingAngle:0, wingDir:1, trail:[]},
+    {x:W+60, y:0, dir:-1, entryIdx:3, launched:false, wingAngle:0, wingDir:1, trail:[]},
+  ];
+
+  function getEntryY(idx){
+    const entries = document.querySelectorAll('.tree-entry');
+    if(!entries[idx]) return H * (0.18 + idx*0.22);
+    const r = entries[idx].getBoundingClientRect();
+    const sr = section.getBoundingClientRect();
+    return r.top - sr.top + r.height*0.2;
+  }
+
+  function drawBird(ctx, x, y, dir, wingAngle){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(dir, 1);
+
+    // body — small teardrop
+    ctx.fillStyle = BIRD_COLOR;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 10, 6, dir>0?0.2:-0.2, 0, Math.PI*2);
+    ctx.fill();
+
+    // tail
+    ctx.beginPath();
+    ctx.moveTo(-8, 0);
+    ctx.lineTo(-16, -3);
+    ctx.lineTo(-14, 0);
+    ctx.lineTo(-16, 3);
+    ctx.closePath();
+    ctx.fill();
+
+    // wings
+    const wUp = Math.sin(wingAngle)*14;
+    ctx.fillStyle = WING_COLOR;
+    // top wing
+    ctx.beginPath();
+    ctx.moveTo(0,-2);
+    ctx.quadraticCurveTo(6, -wUp-8, 14, -wUp-2);
+    ctx.quadraticCurveTo(6, -wUp, 0, 2);
+    ctx.closePath();
+    ctx.fill();
+    // bottom wing (opposite flap)
+    ctx.beginPath();
+    ctx.moveTo(0,2);
+    ctx.quadraticCurveTo(6, wUp+4, 12, wUp+2);
+    ctx.quadraticCurveTo(6, wUp, 0,-2);
+    ctx.closePath();
+    ctx.globalAlpha = 0.6;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // head
+    ctx.fillStyle = BIRD_COLOR;
+    ctx.beginPath();
+    ctx.arc(9, -2, 5, 0, Math.PI*2);
+    ctx.fill();
+
+    // eye
+    ctx.fillStyle = '#FFFAE8';
+    ctx.beginPath(); ctx.arc(11,-3,1.8,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#2C1A0E';
+    ctx.beginPath(); ctx.arc(11.5,-3,1,0,Math.PI*2); ctx.fill();
+
+    // beak
+    ctx.fillStyle = BEAK_COLOR;
+    ctx.beginPath();
+    ctx.moveTo(13,-2); ctx.lineTo(20,-1); ctx.lineTo(13,1);
+    ctx.closePath(); ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawTrail(ctx, trail){
+    if(trail.length < 2) return;
+    for(let i=1;i<trail.length;i++){
+      ctx.save();
+      ctx.globalAlpha = (i/trail.length)*0.25;
+      ctx.strokeStyle = WING_COLOR;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(trail[i-1].x, trail[i-1].y);
+      ctx.lineTo(trail[i].x, trail[i].y);
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  let started = false;
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+
+    birds.forEach((b,i) => {
+      if(!b.launched) return;
+
+      // update Y target lazily
+      if(!b.targetY) b.targetY = getEntryY(b.entryIdx);
+
+      // gentle wave flight path
+      b.x += b.dir * 3.2;
+      b.y += (b.targetY - b.y) * 0.04;
+      b.y += Math.sin(b.x * 0.03) * 1.2; // wavy
+
+      // wing flap
+      b.wingAngle += 0.18 * b.wingDir;
+      if(Math.abs(b.wingAngle) > Math.PI/2) b.wingDir *= -1;
+
+      // trail
+      b.trail.push({x:b.x, y:b.y});
+      if(b.trail.length > 18) b.trail.shift();
+
+      drawTrail(ctx, b.trail);
+      drawBird(ctx, b.x, b.y, b.dir, b.wingAngle);
+
+      // reset when off screen
+      if(b.dir > 0 && b.x > W + 80){
+        b.x = -60; b.trail = [];
+      } else if(b.dir < 0 && b.x < -80){
+        b.x = W+60; b.trail = [];
+      }
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  // stagger bird launches
+  const birdObs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && !started){
+        started = true;
+        birds.forEach((b,i)=>{
+          b.targetY = getEntryY(b.entryIdx);
+          setTimeout(()=>{ b.launched=true; }, i*600);
+        });
+        requestAnimationFrame(tick);
+        birdObs.disconnect();
+      }
+    });
+  },{threshold:0.1});
+  birdObs.observe(section);
+})();
+
+/* ============ TREE EXPERIENCE ============ */
+(function(){
+  function drawTree(){
+    const wrap = document.querySelector('.tree-wrap');
+    const svg  = document.getElementById('tree-svg');
+    if(!wrap || !svg) return;
+
+    const W = wrap.offsetWidth;
+    const H = wrap.offsetHeight;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('width', W);
+    svg.setAttribute('height', H);
+    svg.innerHTML = '';
+
+    const cx = W / 2;
+    const TRUNK_COLOR  = '#6B4F3A';
+    const BRANCH_COLOR = '#8B6A4A';
+    const LEAF_COLORS  = ['#C2C395','#B0BA99','#DDBAAE','#A8B88A','#C8D4A8'];
+
+    // ── trunk ──
+    const trunkTop = 40, trunkBot = H - 20;
+    const trunk = document.createElementNS('http://www.w3.org/2000/svg','line');
+    trunk.setAttribute('x1', cx); trunk.setAttribute('y1', trunkTop);
+    trunk.setAttribute('x2', cx); trunk.setAttribute('y2', trunkBot);
+    trunk.setAttribute('stroke', TRUNK_COLOR);
+    trunk.setAttribute('stroke-width', '5');
+    trunk.setAttribute('stroke-linecap', 'round');
+    // animate trunk drawing
+    const tLen = trunkBot - trunkTop;
+    trunk.setAttribute('stroke-dasharray', tLen);
+    trunk.setAttribute('stroke-dashoffset', tLen);
+    trunk.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.22,1,.36,1) 0.2s';
+    svg.appendChild(trunk);
+
+    // small root flares at bottom
+    [-18, 18].forEach(dx => {
+      const r = document.createElementNS('http://www.w3.org/2000/svg','path');
+      r.setAttribute('d', `M${cx},${trunkBot} Q${cx+dx},${trunkBot+12} ${cx+dx*1.8},${trunkBot+6}`);
+      r.setAttribute('stroke', TRUNK_COLOR); r.setAttribute('stroke-width','3');
+      r.setAttribute('fill','none'); r.setAttribute('stroke-linecap','round');
+      svg.appendChild(r);
+    });
+
+    // ── branches — one per entry ──
+    const entries = document.querySelectorAll('.tree-entry');
+    const branchData = [];
+
+    entries.forEach((entry, i) => {
+      const isLeft = entry.classList.contains('left');
+      const rect   = entry.getBoundingClientRect();
+      const wRect  = wrap.getBoundingClientRect();
+      const cardMidY = rect.top - wRect.top + rect.height * 0.28;
+
+      const bx1 = cx;
+      const by1 = cardMidY;
+      const bx2 = isLeft ? cx - 60 : cx + 60;
+      const by2 = cardMidY;
+      const cpx = isLeft ? cx - 30 : cx + 30;
+
+      // branch path
+      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+      const d = `M${bx1},${by1} Q${cpx},${by2-10} ${bx2},${by2}`;
+      path.setAttribute('d', d);
+      path.setAttribute('stroke', BRANCH_COLOR);
+      path.setAttribute('stroke-width', '2.5');
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke-linecap', 'round');
+      const pLen = path.getTotalLength ? path.getTotalLength() : 80;
+      path.setAttribute('stroke-dasharray', pLen);
+      path.setAttribute('stroke-dashoffset', pLen);
+      path.style.transition = `stroke-dashoffset 0.6s cubic-bezier(.22,1,.36,1) ${0.9 + i*0.25}s`;
+      svg.appendChild(path);
+      branchData.push({ path, isLeft, bx2, by2 });
+
+      // little twig lines off branch
+      for(let t = 0; t < 3; t++){
+        const twig = document.createElementNS('http://www.w3.org/2000/svg','line');
+        const tx = isLeft ? cx - 20 - t*12 : cx + 20 + t*12;
+        const ty = by1 - 2;
+        const angle = isLeft ? -0.6 - t*0.3 : 0.6 + t*0.3;
+        const tLen2 = 12 + t*4;
+        twig.setAttribute('x1', tx); twig.setAttribute('y1', ty);
+        twig.setAttribute('x2', tx + Math.cos(angle)*tLen2);
+        twig.setAttribute('y2', ty - Math.abs(Math.sin(angle))*tLen2);
+        twig.setAttribute('stroke', BRANCH_COLOR);
+        twig.setAttribute('stroke-width', '1.2');
+        twig.setAttribute('stroke-linecap', 'round');
+        const twL = tLen2 * 1.1;
+        twig.setAttribute('stroke-dasharray', twL);
+        twig.setAttribute('stroke-dashoffset', twL);
+        twig.style.transition = `stroke-dashoffset 0.4s ease ${1.2 + i*0.25 + t*0.1}s`;
+        svg.appendChild(twig);
+        branchData.push({ path: twig });
+      }
+
+      // leaves scattered around branch tip
+      const leafCount = 5 + Math.floor(Math.random()*4);
+      for(let l = 0; l < leafCount; l++){
+        const lx = bx2 + (isLeft ? -1 : 1) * (Math.random()*28);
+        const ly = by2 + (Math.random()-0.5)*28;
+        const lw = 7 + Math.random()*9;
+        const lh = lw * 0.6;
+        const lrot = (Math.random()-0.5)*60;
+        const leaf = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
+        leaf.setAttribute('cx', lx); leaf.setAttribute('cy', ly);
+        leaf.setAttribute('rx', lw); leaf.setAttribute('ry', lh);
+        leaf.setAttribute('fill', LEAF_COLORS[Math.floor(Math.random()*LEAF_COLORS.length)]);
+        leaf.setAttribute('opacity', '0.82');
+        leaf.setAttribute('transform', `rotate(${lrot},${lx},${ly})`);
+        leaf.style.opacity = '0';
+        leaf.style.transition = `opacity 0.5s ease ${1.4 + i*0.25 + l*0.04}s, transform 0.5s ease ${1.4+i*0.25}s`;
+        svg.appendChild(leaf);
+        branchData.push({ leaf });
+      }
+    });
+
+    // tiny top crown leaves
+    for(let c = 0; c < 12; c++){
+      const lx = cx + (Math.random()-0.5)*60;
+      const ly = trunkTop + (Math.random()-0.5)*30;
+      const lw = 8 + Math.random()*12;
+      const leaf = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
+      leaf.setAttribute('cx', lx); leaf.setAttribute('cy', ly);
+      leaf.setAttribute('rx', lw); leaf.setAttribute('ry', lw*0.65);
+      leaf.setAttribute('fill', LEAF_COLORS[Math.floor(Math.random()*LEAF_COLORS.length)]);
+      leaf.setAttribute('opacity','0.75');
+      leaf.setAttribute('transform',`rotate(${(Math.random()-0.5)*70},${lx},${ly})`);
+      leaf.style.opacity = '0';
+      leaf.style.transition = `opacity 0.4s ease ${0.3 + c*0.05}s`;
+      svg.appendChild(leaf);
+      branchData.push({ leaf });
+    }
+
+    // trigger animations after paint
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        trunk.style.strokeDashoffset = '0';
+        branchData.forEach(b => {
+          if(b.path) b.path.style.strokeDashoffset = '0';
+          if(b.leaf) b.leaf.style.opacity = '0.82';
+        });
+      });
+    });
+  }
+
+  // run after layout settles
+  window.addEventListener('load', () => { setTimeout(drawTree, 300); });
+  window.addEventListener('resize', () => { setTimeout(drawTree, 100); });
+})();
 </script>
-
-
-<footer>
-  © 2026 Kezia Minni
-</footer>
-
 </body>
 </html>
