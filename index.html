@@ -3,17 +3,38 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kezia Minni — Field Notes</title>
+  <title>Kezia Minni — Data Scientist</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<div id="cursor"></div>
+<div id="cursor">
+  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <g transform="rotate(45, 20, 20)">
+      <!-- eraser (top) -->
+      <rect x="15" y="2" width="10" height="5" rx="2" fill="#DDBAAE"/>
+      <!-- eraser band -->
+      <rect x="15" y="6.5" width="10" height="2.5" fill="#C2A882"/>
+      <!-- body -->
+      <rect x="15" y="9" width="10" height="22" fill="#C2A882"/>
+      <!-- body highlight -->
+      <rect x="15" y="9" width="3.5" height="22" fill="#DCC3AA" opacity="0.6"/>
+      <!-- body shadow -->
+      <rect x="21.5" y="9" width="3.5" height="22" fill="#9D7A5A" opacity="0.3"/>
+      <!-- tip cone -->
+      <polygon points="15,31 25,31 20,38" fill="#E8D0B0"/>
+      <!-- tip cone shadow -->
+      <polygon points="20,31 25,31 20,38" fill="#C2A882" opacity="0.5"/>
+      <!-- lead tip -->
+      <polygon points="18.5,36.5 21.5,36.5 20,39.5" fill="#3A3B28"/>
+    </g>
+  </svg>
+</div>
 <div id="cursor-ring"></div>
 
 <!-- NAV -->
 <nav id="nav">
-  <span class="nav-notebook-label">FIELD NOTES — <strong>KM</strong> &nbsp;·&nbsp; <span id="nav-page">pg. 01 / cover</span></span>
+  <span class="nav-logo">KM</span>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -32,8 +53,8 @@
   <div class="hero-left">
     <div class="hero-stamp">● OPEN TO WORK &nbsp;·&nbsp; 2026</div>
 
-    <h1 class="hero-name">Kezia Minni</h1>
-    <p class="hero-subname">Data Scientist &nbsp;·&nbsp; Experimentation &amp; Causal Inference</p>
+    <h1 class="hero-name"><span id="typed-name"></span></h1>
+    <p class="hero-subname">Data Scientist &nbsp;·&nbsp; Experimentation &amp; Analytics Engineering</p>
 
     <p class="hero-tagline">
       "I turn ambiguous data into<br>decisions people can actually trust."
@@ -50,23 +71,27 @@
       </a>
     </div>
 
-    <span class="hero-page-num">pg. 01</span>
+
   </div>
 
   <div class="hero-right">
-    <canvas id="sketch-canvas" height="260"></canvas>
+    <canvas id="sketch-canvas" height="240"></canvas>
     <div class="hero-stat-band">
       <div class="hero-stat">
         <span class="stat-num" data-count="10" data-suffix="M+">10M+</span>
-        <span class="stat-label">records processed @ Amazon</span>
+        <span class="stat-label">pricing records validated at Amazon — zero manual review</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num" data-count="30" data-suffix="%">30%</span>
+        <span class="stat-label">accuracy lift on a GPS scoring model I built from scratch</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num" data-count="86" data-suffix="%">86%</span>
+        <span class="stat-label">ranking accuracy on published multimodal ML research</span>
       </div>
       <div class="hero-stat">
         <span class="stat-num" data-count="3.85" data-decimal="2" data-suffix="">3.85</span>
         <span class="stat-label">GPA — M.S. Data Science, RIT</span>
-      </div>
-      <div class="hero-stat">
-        <span class="stat-num" data-count="86" data-suffix="%">86%</span>
-        <span class="stat-label">caption ranking accuracy (research)</span>
       </div>
     </div>
   </div>
@@ -91,21 +116,21 @@
 
       <div class="about-card" data-label="contact">
         <div class="about-card-row"><span class="key">email</span><span class="val"><a href="mailto:makezia7@gmail.com" style="color:var(--rust)">makezia7@gmail.com</a></span></div>
-        <div class="about-card-row"><span class="key">focus</span><span class="val">A/B Testing &amp; ML</span></div>
+        <div class="about-card-row"><span class="key">focus</span><span class="val">Experimentation &amp; Analytics Engineering</span></div>
         <div class="about-card-row"><span class="key">degree</span><span class="val">M.S. DS, RIT</span></div>
       </div>
     </div>
 
     <div class="about-body" style="position:relative;">
       <p class="reveal">
-        I'm a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning. My background includes industry work with large-scale datasets at Amazon, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality and decision-making.
+        <span class="drop-cap">I'm</span> a Data Scientist with a strong foundation in analytics and hands-on experience across applied research and machine learning. My background includes industry work with large-scale datasets at Amazon, where I built SQL-based reporting pipelines, analyzed pricing and operational data, and partnered with cross-functional teams to improve data quality and decision-making.
       </p>
       <span class="margin-note reveal" style="top:40px;">← built pipelines processing 10M+ rows</span>
 
       <p class="reveal delay-1">
         During my Master's in Data Science at RIT, I expanded into predictive modeling, multimodal deep learning, and rigorous model evaluation — while also supporting analytics workflows as a graduate teaching assistant. I'm particularly drawn to the hard part: translating ambiguous, messy problems into structured hypotheses.
       </p>
-      <span class="margin-note reveal delay-1" style="top:240px;">← research with Prof. Yu (CLIP/BLIP)</span>
+      <span class="margin-note reveal delay-1" style="top:240px;">← multimodal ML research, RIT</span>
 
       <p class="reveal delay-2">
         Right now I'm at Greenstand designing scoring models for large-scale tree tracking data. I'm also open to data science and analytics engineering roles where experimentation, causal inference, and building trustworthy systems are core to the work.
@@ -418,7 +443,7 @@
 <!-- FOOTER -->
 <footer>
   <strong>Kezia Minni</strong>
-  <span>field-notes-v1.0 · Rochester, NY · 2026</span>
+  <span>Data Scientist · Boston, MA · 2026</span>
 </footer>
 
 <!-- MODAL -->
@@ -554,28 +579,15 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-/* ============ CURSOR ============ */
+/* ============ PENCIL CURSOR ============ */
 const cur = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx=-100,my=-100,rx=-100,ry=-100;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top  = e.clientY + 'px';
 });
-(function animRing(){
-  rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-})();
-document.querySelectorAll('a,button,.project-card,.magnetic').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    cur.style.width='16px'; cur.style.height='16px';
-    ring.style.width='48px'; ring.style.height='48px'; ring.style.opacity='0.3';
-  });
-  el.addEventListener('mouseleave',()=>{
-    cur.style.width='8px'; cur.style.height='8px';
-    ring.style.width='32px'; ring.style.height='32px'; ring.style.opacity='0.4';
-  });
+document.querySelectorAll('a,button,.project-card,.magnetic,.stamp,.tree-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('hovering'));
 });
 
 /* ============ MAGNETIC BUTTONS ============ */
@@ -589,25 +601,9 @@ document.querySelectorAll('.magnetic').forEach(btn=>{
   btn.addEventListener('mouseleave',()=>{ btn.style.transform=''; });
 });
 
-/* ============ NAV SCROLL + PAGE LABEL ============ */
-const sections = [
-  {id:'cover',   label:'pg. 01 / cover'},
-  {id:'about',   label:'pg. 02 / about'},
-  {id:'experience', label:'pg. 03 / experience'},
-  {id:'education',  label:'pg. 04 / education'},
-  {id:'projects',   label:'pg. 05 / projects'},
-  {id:'skills',     label:'pg. 06 / skills'},
-  {id:'contact',    label:'pg. 07 / contact'},
-];
-const navPageEl = document.getElementById('nav-page');
+/* ============ NAV SCROLL STATE ============ */
 window.addEventListener('scroll',()=>{
-  const sy = window.scrollY + 80;
-  let current = sections[0];
-  sections.forEach(s=>{
-    const el = document.getElementById(s.id);
-    if(el && el.offsetTop <= sy) current = s;
-  });
-  navPageEl.textContent = current.label;
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
 }, {passive:true});
 
 /* ============ SCROLL REVEAL ============ */
@@ -806,8 +802,56 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
     ctx.restore();
   }
 
+  window._scatterKnock = {
+    triggered: false,
+    shakeAmt: 0,
+    collapseScale: 1,
+    falling: false,
+    alpha: 1,
+    reset() {
+      this.triggered = false;
+      this.shakeAmt = 0;
+      this.collapseScale = 1;
+      this.falling = false;
+      this.alpha = 1;
+      state = 'grid';
+      gridProgress = 0;
+      ptIdx = 0;
+      ptTimer = 0;
+      regProgress = 0;
+      annotProgress = 0;
+      init();
+    }
+  };
+
   function tick(){
-    ctx.clearRect(0,0,W,H);
+    const knock = window._scatterKnock;
+
+    if(knock.triggered && !knock.falling){
+      knock.shakeAmt = Math.min(knock.shakeAmt + 1.2, 12);
+    }
+    if(knock.falling){
+      knock.collapseScale = Math.max(0, knock.collapseScale - 0.04);
+      knock.alpha = knock.collapseScale;
+    }
+
+    const shakeX = (!knock.falling && knock.shakeAmt > 0) ? (Math.random()-0.5)*knock.shakeAmt : 0;
+    const shakeY = (!knock.falling && knock.shakeAmt > 0) ? (Math.random()-0.5)*knock.shakeAmt*0.4 : 0;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.save();
+    ctx.globalAlpha = knock.alpha;
+
+    if(knock.falling){
+      // collapse scale from center of canvas
+      const cx2 = W/2, cy2 = H/2;
+      ctx.translate(cx2, cy2);
+      ctx.scale(knock.collapseScale, knock.collapseScale);
+      ctx.translate(-cx2, -cy2);
+    } else {
+      ctx.translate(shakeX, shakeY);
+    }
+
     frame++;
 
     if(state==='grid'){
@@ -838,6 +882,19 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
       if(annotProgress>=1) state='idle';
     }
 
+    ctx.restore();
+
+    // decay shake
+    if(knock.shakeAmt > 0 && !knock.falling) knock.shakeAmt *= 0.85;
+
+    // collapsed — reset after 2s
+    if(knock.collapseScale <= 0 && !knock._resetTimer){
+      knock._resetTimer = setTimeout(() => {
+        knock.reset();
+        knock._resetTimer = null;
+      }, 2000);
+    }
+
     requestAnimationFrame(tick);
   }
 
@@ -866,10 +923,9 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
   const CREAM = '#FFFAE8';
 
   // ── cat state machine ──────────────────────────────────
-  // states: walk_right | sit | lick | tail_flick | walk_left | sleep | sniff
   let cat = {
     x: -80, y: 0,
-    dir: 1,           // 1 = right, -1 = left
+    dir: 1,
     state: 'walk_right',
     stateTimer: 0,
     walkFrame: 0,
@@ -880,19 +936,28 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
     blinking: false,
     lickFrame: 0,
     sleeping: false,
-    zzz: [],          // floating z's when sleeping
-    pawLift: 0,       // sniff bob
+    zzz: [],
+    pawLift: 0,
     pawDir: 1,
+    flopAngle: 0,        // death flop rotation
+    flopDir: 1,
+    knockPawX: 0,        // knocking paw position
+    knockPawY: 0,
+    fallingObj: null,    // the object being knocked off
+    ignoreTimer: 0,      // ignoring cursor - grooming
+    spinAngle: 0,
   };
 
-  // waypoints — cat walks right across hero then teleports back to left to loop
+
+  // waypoints — includes funny random actions
   const stops = [
-    { x: 0.15, y: 0.82, action: 'sit'   },
-    { x: 0.36, y: 0.58, action: 'sniff' },
-    { x: 0.54, y: 0.78, action: 'lick'  },
-    { x: 0.72, y: 0.48, action: 'sit'   },
-    { x: 0.90, y: 0.75, action: 'sleep' },
-    { x: 1.12, y: 0.82, action: 'walk_left' }, // exit off right edge
+    { x: 0.12, y: 0.82, action: 'sit'           },
+    { x: 0.28, y: 0.72, action: 'sniff'         },
+    { x: 0.45, y: 0.82, action: 'lick'          },
+    { x: 0.58, y: 0.65, action: 'ignore'        },
+    { x: 0.56, y: 0.38, action: 'knock_scatter' },
+    { x: 0.95, y: 0.75, action: 'sit'           },
+    { x: 1.12, y: 0.82, action: 'walk_left'     },
   ];
   let stopIdx = 0;
   let targetX = () => stops[stopIdx].x * W;
@@ -1029,13 +1094,12 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
     ctx.beginPath(); ctx.moveTo(28*sc,-18*sc); ctx.lineTo(39*sc,-18*sc); ctx.stroke();
 
     // lick paw animation
-    if(state === 'lick'){
+    if(state === 'lick' || state === 'ignore'){
       const lickY = -28*sc + Math.sin(lickFrame * 0.18) * 8*sc;
       ctx.fillStyle = FUR;
       ctx.beginPath(); ctx.ellipse(28*sc, lickY, 5*sc, 7*sc, -0.4, 0, Math.PI*2); ctx.fill();
       ctx.fillStyle = PINK;
       ctx.beginPath(); ctx.ellipse(28*sc, lickY+3*sc, 4*sc, 3*sc, 0, 0, Math.PI*2); ctx.fill();
-      // tongue
       ctx.fillStyle = '#E8899A';
       ctx.beginPath(); ctx.ellipse(22*sc, -18*sc, 3*sc, 4*sc, 0.1, 0, Math.PI*2); ctx.fill();
     }
@@ -1077,22 +1141,122 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
         cat.walkTick++;
         if(cat.walkTick % 3 === 0) cat.walkFrame++;
       } else {
-        // snap to stop, decay spin
         cat.spinAngle = 0;
         const action = stops[stopIdx].action;
-        // if action is walk_left, teleport back to left edge and restart
         if(action === 'walk_left'){
           cat.x = -80;
           cat.y = stops[0].y * H;
           stopIdx = 0;
           cat.state = 'walk_right';
-          cat.spinAngle = 0;
         } else {
           cat.state = action;
           cat.stateTimer = 0;
           cat.lickFrame = 0;
+          cat.flopAngle = 0;
+          cat.fallingObj = null;
         }
       }
+
+    } else if(cat.state === 'flop'){
+      // DEATH FLOP — cat dramatically falls over sideways
+      cat.stateTimer++;
+      if(cat.stateTimer < 20){
+        // wind up — wiggle
+        cat.flopAngle = Math.sin(cat.stateTimer * 0.8) * 0.15;
+      } else if(cat.stateTimer < 35){
+        // FLOP — rotate to 90deg fast
+        cat.flopAngle += 0.18;
+        if(cat.flopAngle > Math.PI/2) cat.flopAngle = Math.PI/2;
+      } else if(cat.stateTimer < 140){
+        // lie there stiff — occasional leg twitch
+        cat.flopAngle = Math.PI/2;
+        cat.pawLift = Math.sin(cat.stateTimer * 0.3) * (cat.stateTimer < 80 ? 0.3 : 0);
+      } else if(cat.stateTimer < 165){
+        // get back up
+        cat.flopAngle -= 0.12;
+        if(cat.flopAngle < 0) cat.flopAngle = 0;
+      } else {
+        cat.flopAngle = 0;
+        stopIdx = (stopIdx + 1) % stops.length;
+        cat.state = 'walk_right';
+        cat.stateTimer = 0;
+      }
+
+    } else if(cat.state === 'knock'){
+      // KNOCK SOMETHING OFF — slow deliberate paw push, watch it fall
+      cat.stateTimer++;
+      if(!cat.fallingObj) cat.fallingObj = { x: cat.x + cat.dir*30, y: cat.y - 20, vy: 0, fallen: false, alpha: 1 };
+
+      if(cat.stateTimer < 30){
+        // look at object — face forward
+      } else if(cat.stateTimer < 60){
+        // extend paw slowly toward object
+        cat.knockPawX = cat.dir * (8 + (cat.stateTimer-30) * 0.7);
+        cat.knockPawY = -28 - (cat.stateTimer-30) * 0.3;
+      } else if(cat.stateTimer === 60){
+        // PUSH — object falls
+        cat.fallingObj.vy = 2;
+      } else if(cat.stateTimer < 80){
+        // retract paw
+        cat.knockPawX = cat.dir * Math.max(0, cat.knockPawX - 1.5);
+      } else if(cat.stateTimer < 140){
+        // watch it fall
+        cat.fallingObj.y += cat.fallingObj.vy;
+        cat.fallingObj.vy += 0.18;
+        cat.fallingObj.alpha = Math.max(0, 1 - (cat.stateTimer - 80) / 50);
+        // cat looks down
+      } else {
+        // walk away unbothered
+        cat.fallingObj = null;
+        stopIdx = (stopIdx + 1) % stops.length;
+        cat.state = 'walk_right';
+        cat.stateTimer = 0;
+      }
+
+    } else if(cat.state === 'knock_scatter'){
+      // KNOCKS THE SCATTER PLOT OFF THE SCREEN — pushes it sideways
+      cat.stateTimer++;
+      cat.dir = 1; // face right toward canvas
+
+      if(cat.stateTimer < 30){
+        // stare at it
+      } else if(cat.stateTimer < 55){
+        // slowly extend paw rightward toward the canvas edge
+        cat.knockPawX = 8 + (cat.stateTimer - 30) * 1.4;
+        cat.knockPawY = -32;
+      } else if(cat.stateTimer === 55){
+        // BAT — shake
+        if(window._scatterKnock) window._scatterKnock.triggered = true;
+      } else if(cat.stateTimer < 70){
+        // retract paw
+        cat.knockPawX = Math.max(0, cat.knockPawX - 2);
+        if(cat.stateTimer === 65 && window._scatterKnock){
+          window._scatterKnock.falling = true;
+        }
+      } else if(cat.stateTimer < 180){
+        cat.knockPawX = 0;
+        // look right watching it slide away
+      } else {
+        stopIdx = (stopIdx + 1) % stops.length;
+        cat.state = 'walk_right';
+        cat.stateTimer = 0;
+        cat.knockPawX = 0;
+      }
+
+    } else if(cat.state === 'ignore'){
+      // IGNORE — grooms self, actively looks away
+      cat.stateTimer++;
+      cat.ignoreTimer = cat.stateTimer;
+      cat.lickFrame++;
+      // flip away from center (always look outward)
+      cat.dir = cat.x > W/2 ? 1 : -1;
+      if(cat.stateTimer > 180){
+        stopIdx = (stopIdx + 1) % stops.length;
+        cat.state = 'walk_right';
+        cat.stateTimer = 0;
+        cat.lickFrame = 0;
+      }
+
     } else {
       // idling — spin stays 0
       cat.spinAngle = 0;
@@ -1143,7 +1307,24 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
       ctx.restore();
     });
 
-    // ── draw cat ───────────────────────────────────
+    // ── draw falling object ──────────────────────────────
+    if(cat.fallingObj && cat.fallingObj.alpha > 0){
+      const fo = cat.fallingObj;
+      ctx.save();
+      ctx.globalAlpha = fo.alpha;
+      ctx.fillStyle = DARK;
+      ctx.font = '16px serif';
+      ctx.fillText('📱', fo.x, fo.y);
+      ctx.restore();
+    }
+
+    // ── draw cat with flop rotation ───────────────────────
+    ctx.save();
+    ctx.translate(cat.x, cat.y);
+    if(cat.flopAngle > 0){
+      ctx.rotate(cat.dir * cat.flopAngle);
+    }
+    ctx.translate(-cat.x, -cat.y);
     drawCat(
       cat.x, cat.y,
       cat.dir,
@@ -1154,6 +1335,21 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
       cat.lickFrame,
       cat.pawLift
     );
+    ctx.restore();
+
+    // ── draw knock paw ──────────────────────────────────
+    if(cat.state === 'knock' && cat.stateTimer > 30 && cat.stateTimer < 80){
+      ctx.save();
+      ctx.fillStyle = FUR;
+      ctx.beginPath();
+      ctx.ellipse(cat.x + cat.knockPawX, cat.y + cat.knockPawY, 5, 8, -0.3, 0, Math.PI*2);
+      ctx.fill();
+      ctx.fillStyle = PINK;
+      ctx.beginPath();
+      ctx.ellipse(cat.x + cat.knockPawX, cat.y + cat.knockPawY + 3, 4, 3, 0, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
 
     requestAnimationFrame(tick);
   }
@@ -1929,6 +2125,19 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
   // run after layout settles
   window.addEventListener('load', () => { setTimeout(drawTree, 300); });
   window.addEventListener('resize', () => { setTimeout(drawTree, 100); });
+})();
+/* ============ TYPEWRITER NAME ============ */
+(function(){
+  const el   = document.getElementById('typed-name');
+  const text = 'Kezia Minni';
+  let i = 0;
+  setTimeout(function type(){
+    if(i <= text.length){
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, i === 1 ? 400 : 95);
+    }
+  }, 900);
 })();
 </script>
 </body>

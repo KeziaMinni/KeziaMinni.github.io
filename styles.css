@@ -53,32 +53,30 @@ body {
 }
 
 /* =====================
-   CUSTOM CURSOR
+   CUSTOM CURSOR — PENCIL
    ===================== */
 #cursor {
   position: fixed;
-  width: 8px; height: 8px;
-  background: var(--rust);
-  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: width 0.2s, height 0.2s;
-  mix-blend-mode: multiply;
+  transform: translate(-4px, -4px);
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.2s;
 }
-#cursor-ring {
-  position: fixed;
-  width: 32px; height: 32px;
-  border: 1.5px solid var(--olive);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: width 0.22s, height 0.22s, opacity 0.2s;
-  opacity: 0.4;
+#cursor svg {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
 }
+#cursor.hovering svg {
+  transform: scale(1.15);
+}
+
+#cursor-ring { display: none; }
+
 @media (max-width: 860px) {
-  #cursor, #cursor-ring { display:none; }
+  #cursor { display:none; }
   body { cursor:auto; }
 }
 
@@ -97,6 +95,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   transition: background 0.3s;
+}
+
+.nav-logo {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brown);
+  letter-spacing: 0.04em;
 }
 
 .nav-notebook-label {
@@ -315,7 +321,7 @@ nav a:hover::after { width: 100%; }
 }
 
 .hero-right {
-  background: var(--cream-dark);
+  background: var(--cream-mid);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -323,9 +329,10 @@ nav a:hover::after { width: 100%; }
   padding: 7% 6%;
   position: relative;
   overflow: hidden;
+  border-left: 2px solid var(--rule);
 }
 
-/* faint graph-paper on right */
+/* faint grid */
 .hero-right::before {
   content: '';
   position: absolute;
@@ -341,7 +348,7 @@ nav a:hover::after { width: 100%; }
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 360px;
+  max-width: 340px;
   opacity: 0;
   animation: fadeIn 0.8s 1s forwards;
 }
@@ -350,33 +357,37 @@ nav a:hover::after { width: 100%; }
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 340px;
-  margin-top: 24px;
+  max-width: 420px;
+  margin-top: 28px;
   opacity: 0;
   animation: fadeSlideUp 0.6s 1.2s forwards;
 }
 
 .hero-stat {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 10px 0;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 0;
   border-bottom: 1px dashed var(--rule);
 }
 .hero-stat:first-child { border-top: 1px dashed var(--rule); }
 
 .stat-num {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: var(--rust);
-  min-width: 76px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--brown);
+  min-width: 82px;
+  line-height: 1.1;
+  flex-shrink: 0;
 }
 
 .stat-label {
   font-family: 'Caveat', cursive;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--ink-mid);
+  line-height: 1.4;
+  padding-top: 4px;
 }
 
 /* =====================
@@ -627,15 +638,15 @@ nav a:hover::after { width: 100%; }
   max-width: 580px;
   line-height: 1.85;
 }
-.about-body p:first-of-type::first-letter {
+.drop-cap {
   font-family: 'Caveat', cursive;
-  font-size: 4rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--rust);
   float: left;
-  line-height: 0.75;
+  line-height: 0.85;
   margin-right: 6px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 /* margin annotation */
@@ -903,32 +914,158 @@ nav a:hover::after { width: 100%; }
 }
 
 /* =====================
-   EDUCATION
+   EDUCATION — PINNED PAPER
    ===================== */
 #education { background: var(--cream); }
 
 .edu-notebook {
-  max-width: 760px;
-  margin: 0 auto;
-  border: 2px solid var(--brown);
+  max-width: 720px;
+  margin: 40px auto 20px;
   position: relative;
-  background: var(--cream-mid);
+  background: #DDBAAE;
+  border: none;
+  box-shadow: 3px 4px 18px rgba(90,91,66,0.15), 0 1px 4px rgba(90,91,66,0.08);
+  transform: rotate(-0.8deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.edu-notebook:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 5px 10px 28px rgba(90,91,66,0.2);
 }
 
-/* notebook binding holes */
+/* washi tape top-left — sage */
 .edu-notebook::before {
   content: '';
   position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 36px;
-  border-right: 2px solid var(--rule);
-  background: var(--cream-dark);
+  top: -14px;
+  left: 48px;
+  width: 80px;
+  height: 26px;
+  background: rgba(129,130,99,0.6);
+  transform: rotate(-2deg);
+  z-index: 2;
+  border-radius: 2px;
+}
+/* washi tape top-right — darker blush */
+.edu-notebook::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: 60px;
+  width: 64px;
+  height: 26px;
+  background: rgba(90,91,66,0.35);
+  transform: rotate(1.5deg);
+  z-index: 2;
+  border-radius: 2px;
 }
 
 .edu-notebook-inner {
-  padding: 36px 36px 36px 56px;
+  padding: 40px 40px 36px;
+  position: relative;
+  z-index: 1;
 }
 
+/* lined paper effect */
+.edu-notebook-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(transparent calc(100% - 1px), rgba(90,91,66,0.12) 1px);
+  background-size: 100% 2rem;
+  pointer-events: none;
+  z-index: 0;
+}
+.edu-notebook-inner > * { position: relative; z-index: 1; }
+
+.edu-tab-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5A5B42;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.edu-institution {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3A3B28;
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+
+.edu-degree {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #5A5B42;
+  margin-bottom: 20px;
+}
+
+.edu-gpa-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 6px;
+  background: rgba(58,59,40,0.12);
+  padding: 16px 20px;
+  border-radius: 3px;
+  width: fit-content;
+  margin-top: 8px;
+}
+
+.edu-gpa {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #FFFAE8;
+  line-height: 1;
+  text-shadow: 1px 2px 4px rgba(58,59,40,0.2);
+}
+
+.edu-gpa-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: rgba(255,250,232,0.8);
+}
+
+.edu-note {
+  font-family: 'Lora', serif;
+  font-size: 0.88rem;
+  color: #3A3B28;
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  border-top: 1px dashed rgba(58,59,40,0.25);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.coursework {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px dashed rgba(58,59,40,0.25);
+  padding-top: 16px;
+}
+
+.coursework span {
+  font-family: 'Caveat', cursive;
+  font-size: 0.95rem;
+  color: #3A3B28;
+  background: rgba(255,250,232,0.5);
+  padding: 3px 10px;
+  border: 1px solid rgba(58,59,40,0.2);
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+.coursework span:hover {
+  background: #3A3B28;
+  color: #FFFAE8;
+}
 .edu-tab-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.6rem;
@@ -1094,38 +1231,70 @@ nav a:hover::after { width: 100%; }
 .full-width { grid-column: 1 / -1; }
 
 /* =====================
-   SKILLS — STAMP GRID
+   SKILLS — STICKY NOTES
    ===================== */
-#skills { background: var(--cream); }
+#skills { background: var(--cream-dark); }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border: 1.5px solid var(--rule);
+  gap: 36px;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 20px 10px 40px;
 }
 
 .skill-category {
-  padding: 26px 28px;
-  border-right: 1px dashed var(--rule);
-  border-bottom: 1px dashed var(--rule);
-  transition: background 0.2s;
+  padding: 32px 24px 26px;
+  position: relative;
+  box-shadow: 2px 4px 14px rgba(90,91,66,0.15), 0 1px 3px rgba(90,91,66,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
 }
-.skill-category:hover { background: var(--cream-dark); }
-.skill-category:nth-child(3n) { border-right: none; }
-.skill-category:nth-last-child(-n+3) { border-bottom: none; }
+
+/* each note a different background color */
+.skill-category:nth-child(1) { background: #DDBAAE; transform: rotate(-1.2deg); }
+.skill-category:nth-child(2) { background: #C2C395; transform: rotate(0.6deg);  }
+.skill-category:nth-child(3) { background: #EFD7CF; transform: rotate(-0.4deg); }
+.skill-category:nth-child(4) { background: #C2C395; transform: rotate(1deg);    }
+.skill-category:nth-child(5) { background: #DDBAAE; transform: rotate(-0.7deg); }
+.skill-category:nth-child(6) { background: #DCD4C1; transform: rotate(0.9deg);  }
+
+.skill-category:hover {
+  transform: rotate(0deg) translateY(-6px) !important;
+  box-shadow: 5px 12px 28px rgba(90,91,66,0.22);
+  z-index: 2;
+}
+
+/* washi tape */
+.skill-category::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 60px;
+  height: 22px;
+  border-radius: 2px;
+  z-index: 3;
+  opacity: 0.85;
+}
+.skill-category:nth-child(1)::before { background: rgba(129,130,99,0.55);  transform: translateX(-50%) rotate(-2deg);   }
+.skill-category:nth-child(2)::before { background: rgba(221,186,174,0.75); transform: translateX(-50%) rotate(1.5deg);  }
+.skill-category:nth-child(3)::before { background: rgba(129,130,99,0.5);   transform: translateX(-50%) rotate(-1deg);   }
+.skill-category:nth-child(4)::before { background: rgba(194,162,130,0.7);  transform: translateX(-50%) rotate(2deg);    }
+.skill-category:nth-child(5)::before { background: rgba(221,186,174,0.7);  transform: translateX(-50%) rotate(-1.5deg); }
+.skill-category:nth-child(6)::before { background: rgba(194,195,149,0.65); transform: translateX(-50%) rotate(1deg);    }
+
+.skill-category > * { position: relative; z-index: 1; }
 
 .skill-cat-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 12px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3A3B28;
+  margin-bottom: 14px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--rule-light);
+  border-bottom: 1.5px solid rgba(58,59,40,0.2);
 }
 
 .stamp-list {
@@ -1136,19 +1305,17 @@ nav a:hover::after { width: 100%; }
 
 .stamp {
   font-family: 'Caveat', cursive;
-  font-size: 0.95rem;
-  color: var(--ink-mid);
-  background: var(--cream-mid);
-  border: 1px solid var(--rule);
-  padding: 2px 8px;
+  font-size: 1rem;
+  color: #3A3B28;
+  background: rgba(255,250,232,0.55);
+  padding: 2px 10px;
   border-radius: 2px;
-  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.18s;
+  border: 1px solid rgba(58,59,40,0.15);
+  transition: background 0.2s, transform 0.18s;
   cursor: default;
 }
 .stamp:hover {
-  background: var(--olive);
-  border-color: var(--olive);
-  color: var(--cream);
+  background: rgba(58,59,40,0.12);
   transform: rotate(-1deg) scale(1.05);
 }
 
