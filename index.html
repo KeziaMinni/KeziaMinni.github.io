@@ -105,20 +105,15 @@
 
   <div class="about-grid">
     <div class="about-sidebar reveal-left">
+
+      <!-- Polaroid photo -->
+      <div class="polaroid">
+        <div class="polaroid-tape"></div>
+        <img src="kezia_pic.png" alt="Kezia Minni" class="polaroid-img"/>
+        <div class="polaroid-caption">Kezia Minni ✦</div>
+      </div>
+
       <div class="pull-quote">"The hard part isn't the model — it's the question."</div>
-
-      <div class="about-card" data-label="current status">
-        <div class="about-card-row"><span class="key">role</span><span class="val">Data Scientist</span></div>
-        <div class="about-card-row"><span class="key">org</span><span class="val">Greenstand</span></div>
-        <div class="about-card-row"><span class="key">location</span><span class="val">Boston, MA</span></div>
-        <div class="about-card-row"><span class="key">status</span><span class="val" style="color:var(--rust)">Open to work</span></div>
-      </div>
-
-      <div class="about-card" data-label="contact">
-        <div class="about-card-row"><span class="key">email</span><span class="val"><a href="mailto:makezia7@gmail.com" style="color:var(--rust)">makezia7@gmail.com</a></span></div>
-        <div class="about-card-row"><span class="key">focus</span><span class="val">Experimentation &amp; Analytics Engineering</span></div>
-        <div class="about-card-row"><span class="key">degree</span><span class="val">M.S. DS, RIT</span></div>
-      </div>
     </div>
 
     <div class="about-body" style="position:relative;">
@@ -135,6 +130,21 @@
       <p class="reveal delay-2">
         Right now I'm at Greenstand designing scoring models for large-scale tree tracking data. I'm also open to data science and analytics engineering roles where experimentation, causal inference, and building trustworthy systems are core to the work.
       </p>
+
+      <!-- Status cards sit below the body text -->
+      <div class="about-cards-row reveal delay-3">
+        <div class="about-card" data-label="current status">
+          <div class="about-card-row"><span class="key">role</span><span class="val">Data Scientist</span></div>
+          <div class="about-card-row"><span class="key">org</span><span class="val">Greenstand</span></div>
+          <div class="about-card-row"><span class="key">location</span><span class="val">Boston, MA</span></div>
+          <div class="about-card-row"><span class="key">status</span><span class="val" style="color:var(--rust)">Open to work</span></div>
+        </div>
+        <div class="about-card" data-label="contact">
+          <div class="about-card-row"><span class="key">email</span><span class="val"><a href="mailto:makezia7@gmail.com" style="color:var(--rust)">makezia7@gmail.com</a></span></div>
+          <div class="about-card-row"><span class="key">focus</span><span class="val">Experimentation &amp; Analytics Engineering</span></div>
+          <div class="about-card-row"><span class="key">degree</span><span class="val">M.S. DS, RIT</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -339,7 +349,10 @@
       <span class="project-tag">TensorFlow · ResNet-50 · SentenceTransformers</span>
       <div class="project-title">Image–Caption Comparative Ranking</div>
       <p class="project-desc">Multimodal ML pipeline on 15,646 image-caption pairs. ResNet-50 + SentenceTransformers (MiniLM). Pearson 0.76, 86% pairwise ranking accuracy across 7 runs.</p>
-      <div class="project-links"><a href="https://github.com/hil-se/comparative_image_caption" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+      <div class="project-links">
+        <a href="https://github.com/hil-se/comparative_image_caption" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+        <a href="https://arxiv.org/abs/2602.00381v2" target="_blank" onclick="event.stopPropagation()">Research Paper ↗</a>
+      </div>
     </div>
 
     <div class="project-card full-width reveal delay-2" data-category="analytics" onclick="openModal('retention')">
@@ -490,7 +503,8 @@ const projects = {
     action:"Combined ResNet-50 image embeddings with SentenceTransformer (MiniLM) text embeddings on 15,646 image-caption pairs. Trained regression and comparative learning models with hinge loss and dual-encoder architecture.",
     result:"Achieved Pearson 0.76 on regression and 86% pairwise ranking accuracy on the same-image task across 7 independent runs.",
     tools:["Python","TensorFlow","Keras","ResNet-50","SentenceTransformers","MiniLM"],
-    github:"https://github.com/hil-se/comparative_image_caption"
+    github:"https://github.com/hil-se/comparative_image_caption",
+    demo:"https://arxiv.org/abs/2602.00381v2",
   },
   retention: {
     tag:"Analytics · SQL · Snowflake · dbt",
@@ -539,8 +553,13 @@ function openModal(key) {
   document.getElementById('modal-result').textContent = p.result;
   document.getElementById('modal-github').href = p.github;
   const demoBtn = document.getElementById('modal-demo');
-  if(p.demo){ demoBtn.href=p.demo; demoBtn.style.display='inline-block'; }
-  else { demoBtn.style.display='none'; }
+  if(p.demo){
+    demoBtn.href = p.demo;
+    demoBtn.style.display = 'inline-block';
+    demoBtn.textContent = key === 'imagecaption' ? 'Read Paper ↗' : 'Live Demo ↗';
+  } else {
+    demoBtn.style.display = 'none';
+  }
   const tools = document.getElementById('modal-tools');
   tools.innerHTML = '';
   p.tools.forEach(t => {
@@ -570,10 +589,14 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
         card.style.opacity = '1';
         card.style.transform = '';
         card.style.pointerEvents = '';
+        card.style.zIndex = '2';
+        card.style.boxShadow = '5px 7px 0 var(--sage)';
       } else {
-        card.style.opacity = '0.25';
+        card.style.opacity = '0.3';
         card.style.transform = 'scale(0.97)';
         card.style.pointerEvents = 'none';
+        card.style.zIndex = '0';
+        card.style.boxShadow = 'none';
       }
     });
   });
@@ -951,11 +974,13 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
 
   // waypoints — includes funny random actions
   const stops = [
-    { x: 0.12, y: 0.82, action: 'sit'           },
-    { x: 0.28, y: 0.72, action: 'sniff'         },
-    { x: 0.45, y: 0.82, action: 'lick'          },
-    { x: 0.58, y: 0.65, action: 'ignore'        },
+    { x: 0.10, y: 0.82, action: 'sit'           },
+    { x: 0.25, y: 0.72, action: 'sniff'         },
+    { x: 0.40, y: 0.85, action: 'lick'          },
+    { x: 0.52, y: 0.65, action: 'sleep'         },
     { x: 0.56, y: 0.38, action: 'knock_scatter' },
+    { x: 0.38, y: 0.60, action: 'ignore'        },
+    { x: 0.20, y: 0.80, action: 'sniff'         },
     { x: 0.95, y: 0.75, action: 'sit'           },
     { x: 1.12, y: 0.82, action: 'walk_left'     },
   ];
@@ -1107,9 +1132,9 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
     // sniff bob
     if(state === 'sniff'){
       ctx.fillStyle = DARK;
-      ctx.font = `${9*sc}px serif`;
-      ctx.globalAlpha = 0.5 + Math.sin(pawLift)*0.4;
-      ctx.fillText('sniff', 26*sc, -34*sc - Math.abs(Math.sin(pawLift))*6*sc);
+      ctx.font = `bold ${11*sc}px 'Caveat', cursive`;
+      ctx.globalAlpha = 0.75 + Math.sin(pawLift)*0.25;
+      ctx.fillText('sniff sniff...', 26*sc, -38*sc - Math.abs(Math.sin(pawLift))*8*sc);
       ctx.globalAlpha = 1;
     }
 
@@ -1117,7 +1142,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
   }
 
   function spawnZzz(){
-    cat.zzz.push({ x: cat.x + (cat.dir>0?20:-20), y: cat.y - 60, alpha: 1, size: 10 + Math.random()*8, age:0 });
+    cat.zzz.push({ x: cat.x + (cat.dir>0?20:-20), y: cat.y - 60, alpha: 1, size: 16 + Math.random()*10, age:0 });
   }
 
   let zzzTimer = 0;
